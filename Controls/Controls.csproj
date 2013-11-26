@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4534358-12FC-40E0-B138-61844E143E71}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Controls</RootNamespace>
+    <AssemblyName>Controls</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>zh-Hans</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Controls.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Controls.App</SilverlightAppEntry>
+    <TestPageFileName>ControlsTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBetButton.xaml.cs">
+      <DependentUpon>AboutBetButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BetBar.xaml.cs">
+      <DependentUpon>BetBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BetTool.xaml.cs">
+      <DependentUpon>BetTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BulletinControl.xaml.cs">
+      <DependentUpon>BulletinControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\BetInfo.cs" />
+    <Compile Include="Classes\LDItemToBool.cs" />
+    <Compile Include="Classes\LotteryAndDataItems.cs" />
+    <Compile Include="Classes\SelectResult.cs" />
+    <Compile Include="Classes\SingleSelect.cs" />
+    <Compile Include="ConfirmBetButton.xaml.cs">
+      <DependentUpon>ConfirmBetButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataButton.xaml.cs">
+      <DependentUpon>DataButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryResultControl.xaml.cs">
+      <DependentUpon>HistoryResultControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryResultIcon.xaml.cs">
+      <DependentUpon>HistoryResultIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LotteryButton.xaml.cs">
+      <DependentUpon>LotteryButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LotteryContentControl.xaml.cs">
+      <DependentUpon>LotteryContentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainControl.xaml.cs">
+      <DependentUpon>MainControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MultiSelectButton.xaml.cs">
+      <DependentUpon>MultiSelectButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayTagButton.xaml.cs">
+      <DependentUpon>PlayTagButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickButton.xaml.cs">
+      <DependentUpon>QuickButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RemainTimeAndResultControl.xaml.cs">
+      <DependentUpon>RemainTimeAndResultControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowABulletinTool.xaml.cs">
+      <DependentUpon>ShowABulletinTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowAHistoryResultTool.xaml.cs">
+      <DependentUpon>ShowAHistoryResultTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SilverlightControl1.xaml.cs">
+      <DependentUpon>SilverlightControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SingleSelectButton.xaml.cs">
+      <DependentUpon>SingleSelectButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubPlayTagButton.xaml.cs">
+      <DependentUpon>SubPlayTagButton.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="AboutBetButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BetBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BetTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BulletinControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfirmBetButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoryResultControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoryResultIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LotteryButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LotteryContentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MultiSelectButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayTagButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuickButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RemainTimeAndResultControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowABulletinTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowAHistoryResultTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SilverlightControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SingleSelectButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StyleDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubPlayTagButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Fonts\simsun.ttc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\msyh.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\ARIALUNI.TTF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\彩种选中效果.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\11运夺金.png" />
+    <Resource Include="Images\体彩P3.png" />
+    <Resource Include="Images\北京PK拾.png" />
+    <Resource Include="Images\广东11选5.png" />
+    <Resource Include="Images\新疆时时彩.png" />
+    <Resource Include="Images\江西时时彩.png" />
+    <Resource Include="Images\福彩3D.png" />
+    <Resource Include="Images\菲乐时时彩.png" />
+    <Resource Include="Images\重庆时时彩.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\会员管理.png" />
+    <Resource Include="Images\会员管理%28选中%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\资金管理%28选中%29.png" />
+    <Resource Include="Images\资金管理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\投注明细%28选中%29.png" />
+    <Resource Include="Images\投注明细.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\数据报表%28选中%29.png" />
+    <Resource Include="Images\数据报表.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\个人中心%28选中%29.png" />
+    <Resource Include="Images\个人中心.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\积分兑换%28选中%29.png" />
+    <Resource Include="Images\积分兑换.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\在线客服%28选中%29.png" />
+    <Resource Include="Images\在线客服.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\快捷按键bg.png" />
+    <Resource Include="Images\快捷按键按下bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\提现.png" />
+    <Resource Include="Images\充值.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\单个数字选择键bg.png" />
+    <Resource Include="Images\单个数字选择键按下bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\多重数字选择键bg.png" />
+    <Resource Include="Images\多重数字选择键按下bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\0.png" />
+    <Resource Include="Images\1.png" />
+    <Resource Include="Images\2.png" />
+    <Resource Include="Images\3.png" />
+    <Resource Include="Images\4.png" />
+    <Resource Include="Images\5.png" />
+    <Resource Include="Images\6.png" />
+    <Resource Include="Images\7.png" />
+    <Resource Include="Images\8.png" />
+    <Resource Include="Images\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\全.png" />
+    <Resource Include="Images\单.png" />
+    <Resource Include="Images\双.png" />
+    <Resource Include="Images\大.png" />
+    <Resource Include="Images\小.png" />
+    <Resource Include="Images\清.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\个十百千万bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\玩法标签选中bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\选号区bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\万位.png" />
+    <Resource Include="Images\个位.png" />
+    <Resource Include="Images\十位.png" />
+    <Resource Include="Images\千位.png" />
+    <Resource Include="Images\百位.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\添加or清空or追号bg.png" />
+    <Resource Include="Images\添加or清空or追号按下bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\添加_文字和图标.png" />
+    <Resource Include="Images\清空_文字和图标.png" />
+    <Resource Include="Images\追号_文字和图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\确认投注.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\系统公告%28单独%29bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\历史记录结果图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\彩种选择条bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\系统公告bg.png" />
+    <Resource Include="Images\系统公告标题.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\历史记录标题.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\历史记录bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\剩余时间bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\剩余时间和开奖结果bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\led0.png" />
+    <Resource Include="Images\led1.png" />
+    <Resource Include="Images\led2.png" />
+    <Resource Include="Images\led3.png" />
+    <Resource Include="Images\led4.png" />
+    <Resource Include="Images\led5.png" />
+    <Resource Include="Images\led6.png" />
+    <Resource Include="Images\led7.png" />
+    <Resource Include="Images\led8.png" />
+    <Resource Include="Images\led9.png" />
+    <Resource Include="Images\led冒号.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\结果0.png" />
+    <Resource Include="Images\结果1.png" />
+    <Resource Include="Images\结果10.png" />
+    <Resource Include="Images\结果11.png" />
+    <Resource Include="Images\结果2.png" />
+    <Resource Include="Images\结果3.png" />
+    <Resource Include="Images\结果4.png" />
+    <Resource Include="Images\结果5.png" />
+    <Resource Include="Images\结果6.png" />
+    <Resource Include="Images\结果7.png" />
+    <Resource Include="Images\结果8.png" />
+    <Resource Include="Images\结果9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\normal.png" />
+    <Resource Include="Images\pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scrollviewer向上.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scrollviewer向下.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scrollviewer滑块.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

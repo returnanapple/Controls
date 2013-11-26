@@ -1,0 +1,31 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Controls" x:Class="Controls.BulletinControl"
+    mc:Ignorable="d"
+    Width="220" Height="293">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/系统公告bg.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39"/>
+            <RowDefinition Height="254"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0" Source="Images/系统公告标题.png" Stretch="None"/>
+
+        <ItemsControl Grid.Row="1">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl>
+                        <local:ShowABulletinTool BulletinText="{Binding BulletinText}"/>
+                    </ContentControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

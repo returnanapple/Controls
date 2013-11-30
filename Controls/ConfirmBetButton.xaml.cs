@@ -24,27 +24,18 @@ namespace Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ConfirmBetImageMouseEnter(object sender, MouseEventArgs e)
+        private void MouseEnterAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
+            ImageOfConfirmBetButton.Style = (Style)this.Resources["ConfirmBetButton_HoverEffect"];
         }
         /// <summary>
         /// 鼠标离开
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ConfirmBetImageMouseLeave(object sender, MouseEventArgs e)
+        private void MouseLeaveAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
-        }
-        /// <summary>
-        /// 鼠标左键按下
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ConfirmBetImageMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.ConfirmBetImage.Style = (Style)this.Resources["PressedEffect"];
+            ImageOfConfirmBetButton.Style = (Style)this.Resources["ConfirmBetButton_NormalEffect"];
         }
         #endregion
     }

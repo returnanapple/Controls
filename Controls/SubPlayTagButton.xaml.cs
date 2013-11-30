@@ -34,11 +34,12 @@ namespace Controls
                 bool te = (bool)e.NewValue;
                 if (te)
                 {
-                    td.SubPlayTagImage.Style = (Style)td.Resources["PressedEffect"];
+                    td.SubPlayTagTextBlock.Style = (Style)td.Resources["SubPlayTagButton_SelectedEffect"];
+                    (td.Resources["MouseLeaveEffect"] as Storyboard).Begin();
                 }
                 else
                 {
-                    td.SubPlayTagImage.Style = (Style)td.Resources["NormalEffect"];
+                    td.SubPlayTagTextBlock.Style = null;
                 }
             }));
         /// <summary>
@@ -50,7 +51,7 @@ namespace Controls
             set { SetValue(SubPlayTagTextProperty, value); }
         }
         public static readonly DependencyProperty SubPlayTagTextProperty =
-            DependencyProperty.Register("SubPlayTagText", typeof(string), typeof(SubPlayTagButton), new PropertyMetadata("", (d, e) => 
+            DependencyProperty.Register("SubPlayTagText", typeof(string), typeof(SubPlayTagButton), new PropertyMetadata("", (d, e) =>
             {
                 SubPlayTagButton td = (SubPlayTagButton)d;
                 td.SubPlayTagTextBlock.Text = (string)e.NewValue;
@@ -63,25 +64,31 @@ namespace Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SubPlayTagGridMouseEnter(object sender, MouseEventArgs e)
+        private void MouseEnterAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
+            if (!Selected)
+            {
+                (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
+            }
         }
         /// <summary>
         /// 鼠标离开
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SubPlayTagGridMouseLeave(object sender, MouseEventArgs e)
+        private void MouseLeaveAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
+            if (!Selected)
+            {
+                (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
+            }
         }
         /// <summary>
         /// 鼠标左键按下
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SubPlayTagGridMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void MouseLeftButtonDownAction(object sender, MouseButtonEventArgs e)
         {
             if (!this.Selected)
             {

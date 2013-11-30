@@ -37,49 +37,42 @@ namespace Controls
             }));
         #endregion
 
-        public event EventHandler ActionOfLeftButtonDown;
-
         #region 鼠标事件
         /// <summary>
         /// 鼠标进入
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CoverMouseEnter(object sender, MouseEventArgs e)
+        private void MouseEnterAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
+            GridOfMultiSelectButton.Style = (Style)this.Resources["MultiSelectButton_HoverEffect"];
         }
         /// <summary>
         /// 鼠标离开
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CoverMouseLeave(object sender, MouseEventArgs e)
+        private void MouseLeaveAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
-            GridOfMultiSelectButton.Style = (Style)this.Resources["NormalEffect"];
+            GridOfMultiSelectButton.Style = (Style)this.Resources["MultiSelectButton_NormalEffect"];
         }
         /// <summary>
         /// 鼠标左键按下
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CoverMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void MouseLeftButtonDownAction(object sender, MouseButtonEventArgs e)
         {
-            if (ActionOfLeftButtonDown != null)
-            {
-                ActionOfLeftButtonDown(this, new EventArgs());
-            }
-            GridOfMultiSelectButton.Style = (Style)this.Resources["PressedEffect"];
+            GridOfMultiSelectButton.Style = (Style)this.Resources["MultiSelectButton_SelectedEffect"];
         }
         /// <summary>
-        /// 鼠标左键弹起
+        /// 鼠标左键松开
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CoverMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void MouseLeftButtonUpAction(object sender, MouseButtonEventArgs e)
         {
-            GridOfMultiSelectButton.Style = (Style)this.Resources["NormalEffect"];
+            GridOfMultiSelectButton.Style = (Style)this.Resources["MultiSelectButton_HoverEffect"];
         }
         #endregion
     }

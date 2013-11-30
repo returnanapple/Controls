@@ -35,26 +35,24 @@ namespace Controls
             {
                 BetBar td = (BetBar)d;
                 string te = (string)e.NewValue;
-                td.TittleImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}.png", te), UriKind.RelativeOrAbsolute));
+                td.TittleImage.Source = new BitmapImage(new Uri(String.Format("Images/{0}.png",te),UriKind.RelativeOrAbsolute));
             }));
 
-
+        /// <summary>
+        /// 数字选项集合
+        /// </summary>
         public IEnumerable<SingleSelect> AllSingleSelect
         {
             get { return (IEnumerable<SingleSelect>)GetValue(AllSingleSelectProperty); }
             set { SetValue(AllSingleSelectProperty, value); }
         }
         public static readonly DependencyProperty AllSingleSelectProperty =
-            DependencyProperty.Register("AllSingleSelect", typeof(IEnumerable<SingleSelect>), typeof(BetBar), new PropertyMetadata(null, (d, e) => 
+            DependencyProperty.Register("AllSingleSelect", typeof(IEnumerable<SingleSelect>), typeof(BetBar), new PropertyMetadata(null, (d, e) =>
             {
                 BetBar td = (BetBar)d;
                 td.SingleSelectItemsControl.Items.Clear();
                 td.SingleSelectItemsControl.ItemsSource = (IEnumerable<SingleSelect>)e.NewValue;
             }));
-
-
-
-
         #endregion
     }
 }

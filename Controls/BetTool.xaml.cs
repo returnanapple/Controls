@@ -104,7 +104,6 @@ namespace Controls
 
                 }
             }));
-
         /// <summary>
         /// 结果
         /// </summary>
@@ -115,8 +114,6 @@ namespace Controls
         }
         public static readonly DependencyProperty ResultProperty =
             DependencyProperty.Register("Result", typeof(List<SelectResult>), typeof(BetTool), new PropertyMetadata(null));
-
-
         #endregion
 
         #region 函数

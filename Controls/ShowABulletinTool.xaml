@@ -4,16 +4,21 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="220" Height="81">
+    Width="189" Height="80">
 
-    <Grid Width="199" Height="62" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/系统公告(单独)bg.png"/>
-        </Grid.Background>
-
-        <TextBlock x:Name="ShowABulletinTextBlock" HorizontalAlignment="Left" Margin="42,7,0,0" 
-                   TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Height="49" TextTrimming="WordEllipsis"
-                   Foreground="#FF8B8B8B" FontSize="13" FontFamily="Fonts/simsun.ttc#simsun" LineHeight="16"
-                   Text="我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17"/>
+            <RowDefinition Height="63"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Image Source="Images/最新公告Icon.png" Margin="0,0,15,0"/>
+            <TextBlock x:Name="TittleTextBlock" VerticalAlignment="Bottom" FontSize="14" Foreground="#FFBAA968" FontFamily="Fonts/simsun.ttc#SimSun"
+                       FontWeight="SemiBold"
+                       Text="永久佣金制度"/>
+        </StackPanel>
+        <TextBlock x:Name="TextTextBlock" Grid.Row="1" Margin="29,2,0,0" TextWrapping="Wrap" LineHeight="15" LineStackingStrategy="BaselineToBaseline"
+                   FontSize="12" Foreground="#FF7C6F38" FontFamily="Fonts/simsun.ttc#SimSun" TextTrimming="WordEllipsis"
+                   Text="我是公告我是公告我是公告我是公告我是公告我我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告"/>
     </Grid>
 </UserControl>

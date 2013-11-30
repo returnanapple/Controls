@@ -22,7 +22,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <ContentControl>
-                        <local:ShowABulletinTool BulletinText="{Binding BulletinText}"/>
+                        <!--<local:ShowABulletinTool BulletinText="{Binding BulletinText}"/>-->
                     </ContentControl>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

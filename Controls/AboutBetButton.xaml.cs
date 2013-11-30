@@ -8,6 +8,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Controls
@@ -20,44 +21,29 @@ namespace Controls
         }
 
         #region 依赖属性
-        public string AboutBetImagePath
+        public string ButtonText
         {
-            get { return (string)GetValue(AboutBetImagePathProperty); }
-            set { SetValue(AboutBetImagePathProperty, value); }
+            get { return (string)GetValue(ButtonTextProperty); }
+            set { SetValue(ButtonTextProperty, value); }
         }
-        public static readonly DependencyProperty AboutBetImagePathProperty =
-            DependencyProperty.Register("AboutBetImagePath", typeof(string), typeof(AboutBetButton), new PropertyMetadata(""));
+        public static readonly DependencyProperty ButtonTextProperty =
+            DependencyProperty.Register("ButtonText", typeof(string), typeof(AboutBetButton), new PropertyMetadata("", (d, e) =>
+            {
+                AboutBetButton td = (AboutBetButton)d;
+                string te = (string)e.NewValue;
+                td.ButtonTextImage.Source = new BitmapImage(new Uri(String.Format("Images/{0}.png", te), UriKind.RelativeOrAbsolute));
+            }));
         #endregion
 
         #region 鼠标事件
-        /// <summary>
-        /// 鼠标进入
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AboutBetGridMouseEnter(object sender, MouseEventArgs e)
+        private void MouseEnterAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
+            GridOfAboutBetButton.Style = (Style)this.Resources["AboutBetButton_HoverEffect"];
         }
-        /// <summary>
-        /// 鼠标离开
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AboutBetGridMouseLeave(object sender, MouseEventArgs e)
+        private void MouseLeaveAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
+            GridOfAboutBetButton.Style = (Style)this.Resources["AboutBetButton_NormalEffect"];
         }
-        /// <summary>
-        /// 鼠标左键按下
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AboutBetGridMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.AboutBetGrid.Style = (Style)this.Resources["PressedEffect"];
-        }
-
         #endregion
     }
 }

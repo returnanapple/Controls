@@ -4,48 +4,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="28" Height="27" Margin="1,0">
+    Width="31" Height="32">
 
     <UserControl.Resources>
-        <Style x:Key="NormalEffect" TargetType="Grid">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <ImageBrush ImageSource="Images/单个数字选择键bg.png"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="PressedEffect" TargetType="Grid">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <ImageBrush ImageSource="Images/单个数字选择键按下bg.png"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-        <Storyboard x:Key="MouseEnterEffect" Duration="0:0:0">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridOfSingleSelectButtonTransform"
+            <Storyboard x:Key="MouseEnterEffect" Duration="0:0:0">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridOfSingleSelectButtonTransform"
                                            Storyboard.TargetProperty="X">
-                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridOfSingleSelectButtonTransform"
+                    <LinearDoubleKeyFrame KeyTime="0:0:0" Value="1"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridOfSingleSelectButtonTransform"
                                            Storyboard.TargetProperty="Y">
-                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="MouseLeaveEffect" Duration="0:0:0">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridOfSingleSelectButtonTransform"
+                    <LinearDoubleKeyFrame KeyTime="0:0:0" Value="1"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="MouseLeaveEffect" Duration="0:0:0">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridOfSingleSelectButtonTransform"
                                            Storyboard.TargetProperty="X">
-                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridOfSingleSelectButtonTransform"
+                    <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridOfSingleSelectButtonTransform"
                                            Storyboard.TargetProperty="Y">
-                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+                    <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid x:Name="GridOfSingleSelectButton" Style="{StaticResource NormalEffect}"
+    <Grid x:Name="GridOfSingleSelectButton" Style="{StaticResource SingleSelectButton_NormalEffect}"
           MouseEnter="GridOfSingleSelectButtonMouseEnter"
           MouseLeave="GridOfSingleSelectButtonMouseLeave"
           MouseLeftButtonDown="GridOfSingleSelectButtonMouseLeftButtonDown">

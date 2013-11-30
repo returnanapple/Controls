@@ -8,6 +8,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Controls
@@ -21,27 +22,22 @@ namespace Controls
 
         #region 依赖属性
         /// <summary>
-        /// 数据管理选项图片路径
+        /// 按键文本
         /// </summary>
-        public string DataImagePath
+        public string ButtonText
         {
-            get { return (string)GetValue(DataImagePathProperty); }
-            set { SetValue(DataImagePathProperty, value); }
+            get { return (string)GetValue(ButtonTextProperty); }
+            set { SetValue(ButtonTextProperty, value); }
         }
-        public static readonly DependencyProperty DataImagePathProperty =
-            DependencyProperty.Register("DataImagePath", typeof(string), typeof(DataButton), new PropertyMetadata(""));
+        public static readonly DependencyProperty ButtonTextProperty =
+            DependencyProperty.Register("ButtonText", typeof(string), typeof(DataButton), new PropertyMetadata("", (d, e) =>
+            {
+                DataButton td = (DataButton)d;
+                string te = (string)e.NewValue;
+                td.ButtonTextImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}.png", te), UriKind.RelativeOrAbsolute));
+            }));
         /// <summary>
-        /// 已选择的数据管理选项图片路径
-        /// </summary>
-        public string DataImagePathOfSelected
-        {
-            get { return (string)GetValue(DataImagePathOfSelectedProperty); }
-            set { SetValue(DataImagePathOfSelectedProperty, value); }
-        }
-        public static readonly DependencyProperty DataImagePathOfSelectedProperty =
-            DependencyProperty.Register("DataImagePathOfSelected", typeof(string), typeof(DataButton), new PropertyMetadata(""));
-        /// <summary>
-        /// 选中
+        /// 是否被选中
         /// </summary>
         public bool Selected
         {
@@ -55,13 +51,11 @@ namespace Controls
                 bool te = (bool)e.NewValue;
                 if (te)
                 {
-                    td.DataImage.Opacity = 0;
-                    td.DataImageOfSelected.Opacity = 1;
+                    td.Bg.Style = (Style)td.Resources["DataButton_SelectedEffect"];
                 }
                 else
                 {
-                    td.DataImage.Opacity = 1;
-                    td.DataImageOfSelected.Opacity = 0;
+                    td.Bg.Style = null;
                 }
             }));
         #endregion
@@ -72,29 +66,35 @@ namespace Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CoverMouseEnter(object sender, MouseEventArgs e)
+        private void MouseEnterAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
+            if (!Selected)
+            {
+                Bg.Style = (Style)this.Resources["DataButton_HoverEffect"];
+            }
         }
         /// <summary>
         /// 鼠标离开
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CoverMouseLeave(object sender, MouseEventArgs e)
+        private void MouseLeaveAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
+            if (!Selected)
+            {
+                Bg.Style = null;
+            }
         }
         /// <summary>
         /// 鼠标左键按下
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CoverMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void MouseLeftButtonDownAction(object sender, MouseButtonEventArgs e)
         {
-            if (!this.Selected)
+            if (!Selected)
             {
-                this.Selected = true;
+                Selected = true;
             }
         }
         #endregion

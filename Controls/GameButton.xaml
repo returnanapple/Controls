@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Controls.GameButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="114" Height="40">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid x:Name="GridOfGameButton">
+        <Image x:Name="ImageOfButtonText" Source="images/十一选五_Normal.png" Stretch="None"/>
+        <Grid Background="#00FFFFFF" MouseEnter="MouseEnterAction" MouseLeave="MouseLeaveAction" MouseLeftButtonDown="MouseLeftButtonDownAction"/>
+    </Grid>
+</UserControl>

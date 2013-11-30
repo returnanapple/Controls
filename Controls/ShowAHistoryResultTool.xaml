@@ -5,36 +5,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Controls" x:Class="Controls.ShowAHistoryResultTool"
     mc:Ignorable="d"
-    Height="22">
+    Height="18" Width="191">
 
     <UserControl.Resources>
         <Style x:Key="TextBlockStyle" TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="12.8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
     </UserControl.Resources>
-
-    <StackPanel Orientation="Horizontal">
-        <TextBlock x:Name="IssueTextBlock" Style="{StaticResource TextBlockStyle}" Text="131015001" 
-                   FontFamily="Fonts/ARIALUNI.TTF#Arial Unicode MS" Margin="0,0.5,0,0"/>
-        <TextBlock Style="{StaticResource TextBlockStyle}" Text="期" FontFamily="Fonts/simsun.ttc#SimSun"
-			       Margin="0,3.5,19,0"/>
-
-        <ItemsControl x:Name="AHistoryResultItemsControl">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <ContentControl>
-                        <local:HistoryResultIcon Number="{Binding}"/>
-                    </ContentControl>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        
-    </StackPanel>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock x:Name="IssueTextBlock" Text="00000000000" FontFamily="Fonts/ARIALUNI.TTF#Arial Unicode MS" Style="{StaticResource TextBlockStyle}"/>
+            <TextBlock Text="期" FontFamily="/Controls;component/Fonts/msyh.ttf#Microsoft YaHei" Style="{StaticResource TextBlockStyle}"/>
+        </StackPanel>
+        <TextBlock x:Name="AHistoryResultTextBlock" Grid.Column="1" Text="1,1,1,1,1" FontFamily="Fonts/ARIALUNI.TTF#Arial Unicode MS" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}"/>
+    </Grid>
 </UserControl>

@@ -18,12 +18,16 @@ namespace Controls
         public MainPage()
         {
             InitializeComponent();
-            bt.Result = new List<SelectResult>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            bt.NumberOfLast = 9;
+            //stb.Selected = false;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            GB.Selected = false;
         }
     }
 }

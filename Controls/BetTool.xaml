@@ -5,8 +5,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Controls" x:Class="Controls.BetTool"
     mc:Ignorable="d"
-    Width="603">
-    <ItemsControl x:Name="BetInfoItemsControl">
+    Width="656">
+    
+    <ItemsControl x:Name="BetInfoItemsControl" VerticalAlignment="Top">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <local:BetBar Tittle="{Binding Tittle}" AllSingleSelect="{Binding AllSingleSelect}"/>

@@ -4,50 +4,43 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Height="15">
+    Height="14" Width="55">
     <UserControl.Resources>
-        <Style x:Key="NormalEffect" TargetType="Image">
-            <Setter Property="Source" Value="Images/Normal.png"/>
-        </Style>
-        <Style x:Key="PressedEffect" TargetType="Image">
-            <Setter Property="Source" Value="Images/Pressed.png"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-        <Storyboard x:Key="MouseEnterEffect" Duration="0:0:0">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SubPlayGridTransform"
+            <Storyboard x:Key="MouseEnterEffect" Duration="0:0:0">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SubPlayTagTextBlockTransform"
                                            Storyboard.TargetProperty="X">
-                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SubPlayGridTransform"
+                    <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SubPlayTagTextBlockTransform"
                                            Storyboard.TargetProperty="Y">
-                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="MouseLeaveEffect" Duration="0:0:0">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SubPlayGridTransform"
+                    <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="MouseLeaveEffect" Duration="0:0:0">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SubPlayTagTextBlockTransform"
                                            Storyboard.TargetProperty="X">
-                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SubPlayGridTransform"
+                    <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SubPlayTagTextBlockTransform"
                                            Storyboard.TargetProperty="Y">
-                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+                    <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid MouseEnter="SubPlayTagGridMouseEnter" 
-          MouseLeave="SubPlayTagGridMouseLeave"
-          MouseLeftButtonDown="SubPlayTagGridMouseLeftButtonDown">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="16"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RenderTransform>
-            <TranslateTransform x:Name="SubPlayGridTransform" X="0" Y="0"/>
-        </Grid.RenderTransform>
-
-        <Image x:Name="SubPlayTagImage" Grid.Column="0" Style="{StaticResource NormalEffect}" Stretch="None"/>
-        <TextBlock x:Name="SubPlayTagTextBlock" Grid.Column="1" Text="五星前三" FontSize="12.1" 
-                       FontFamily="Fonts/simsun.ttc#simsun" Foreground="White"/>
-    </Grid>
+    <TextBlock x:Name="SubPlayTagTextBlock" Text="五星复式" HorizontalAlignment="Center"
+               FontFamily="Fonts/simsun.ttc#NSimSun" FontSize="14" Foreground="#FFFDFFCA"
+               MouseEnter="MouseEnterAction"
+               MouseLeave="MouseLeaveAction"
+               MouseLeftButtonDown="MouseLeftButtonDownAction">
+        <TextBlock.RenderTransform>
+            <TranslateTransform x:Name="SubPlayTagTextBlockTransform" X="0" Y="0"/>
+        </TextBlock.RenderTransform>
+    </TextBlock>
 </UserControl>

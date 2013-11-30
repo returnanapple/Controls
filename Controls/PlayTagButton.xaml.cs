@@ -35,13 +35,13 @@ namespace Controls
                 bool te = (bool)e.NewValue;
                 if (te)
                 {
-                    td.PlayTagGrid.Style = (Style)td.Resources["PressedEffect"];
-                    td.PlayTagTextBlock.Style = (Style)td.Resources["TextBlockPressedEffect"];
+                    td.PlayTagGrid.Style = (Style)td.Resources["PlayTagButton_SelectedEffect"];
+                    td.PlayTagTextBlock.Style = (Style)td.Resources["TextOfPlayTagButton_SelectedEffect"];
                 }
                 else
                 {
                     td.PlayTagGrid.Style = null;
-                    td.PlayTagTextBlock.Style = (Style)td.Resources["TextBlockNormalEffect"]; ;
+                    td.PlayTagTextBlock.Style = (Style)td.Resources["TextOfPlayTagButton_NormalEffect"];
                 }
             }));
         /// <summary>
@@ -65,29 +65,35 @@ namespace Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PlayTagTextBlockMouseEnter(object sender, MouseEventArgs e)
+        private void MouseEnterAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
+            if (!Selected)
+            {
+                PlayTagGrid.Style = (Style)this.Resources["PlayTagButton_HoverEffect"];
+            }
         }
         /// <summary>
         /// 鼠标离开
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PlayTagTextBlockMouseLeave(object sender, MouseEventArgs e)
+        private void MouseLeaveAction(object sender, MouseEventArgs e)
         {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
+            if (!Selected)
+            {
+                PlayTagGrid.Style = null;
+            }
         }
         /// <summary>
         /// 鼠标左键按下
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PlayTagTextBlockMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void MouseLeftButtonDownAction(object sender, MouseButtonEventArgs e)
         {
-            if (!this.Selected)
+            if (!Selected)
             {
-                this.Selected = true;
+                Selected = true;
             }
         }
         #endregion

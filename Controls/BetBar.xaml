@@ -5,40 +5,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Controls"         
     mc:Ignorable="d"
-    Height="32" Width="603">
+    Height="32" Width="656">
 
-    <Grid>
+    <Grid x:Name="RealWidth">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="62"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="184"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="388"/>
+            <ColumnDefinition Width="198"/>
         </Grid.ColumnDefinitions>
         <Image x:Name="TittleImage" Grid.Column="0" Source="Images/万位.png" Stretch="None"/>
 
-        <ItemsControl x:Name="SingleSelectItemsControl" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <ItemsControl x:Name="SingleSelectItemsControl" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
+                    <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:SingleSelectButton Number="{Binding Number}" Selected="{Binding Selected, Mode=TwoWay}"/>
+                    <local:SingleSelectButton Number="{Binding Number}" Selected="{Binding Selected, Mode=TwoWay}" Margin="2,0,2,0"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <local:MultiSelectButton Grid.Column="2" Margin="0,0,150,0"
-                                 MultiSelectText="全"/>
-        <local:MultiSelectButton Grid.Column="2" Margin="30,0,120,0"
-                                 MultiSelectText="大"/>
-        <local:MultiSelectButton Grid.Column="2" Margin="60,0,90,0"
-                                 MultiSelectText="小"/>
-        <local:MultiSelectButton Grid.Column="2" Margin="90,0,60,0"
-                                 MultiSelectText="单"/>
-        <local:MultiSelectButton Grid.Column="2" Margin="120,0,30,0"
-                                 MultiSelectText="双"/>
-        <local:MultiSelectButton Grid.Column="2" Margin="150,0,0,0"
-                                 MultiSelectText="清"/>
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+            <local:MultiSelectButton MultiSelectText="大"/>
+            <local:MultiSelectButton MultiSelectText="小" Margin="6,0,6,0"/>
+            <local:MultiSelectButton MultiSelectText="单"/>
+            <local:MultiSelectButton MultiSelectText="双" Margin="6,0,6,0"/>
+            <local:MultiSelectButton MultiSelectText="全"/>
+            <local:MultiSelectButton MultiSelectText="清" Margin="6,0,0,0"/>
+        </StackPanel>
     </Grid>
 </UserControl>

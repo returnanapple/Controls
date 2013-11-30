@@ -2,7 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
-    
+
     <Style TargetType="ScrollBar" x:Key="NewScrollBarStyle">
         <Setter Property="MinWidth" Value="10"/>
         <Setter Property="MinHeight" Value="10"/>
@@ -394,5 +394,160 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <Style x:Key="DataButton_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/DataButton_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DataButton_SelectedEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/DataButton_Selected.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="QuickButton_NormalEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/QuickButton_Normal.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="QuickButton_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/QuickButton_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SingleSelectButton_NormalEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/SingleSelectButton_Normal.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SingleSelectButton_SelectedEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/SingleSelectButton_Selected.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MultiSelectButton_NormalEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/MultiSelectButton_Normal.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MultiSelectButton_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/MultiSelectButton_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MultiSelectButton_SelectedEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/MultiSelectButton_Selected.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PlayTagButton_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/PlayTagButton_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="PlayTagButton_SelectedEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/PlayTagButton_Selected.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TextOfPlayTagButton_NormalEffect" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#FFFDFFCA"/>
+    </Style>
+    <Style x:Key="TextOfPlayTagButton_SelectedEffect" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Red" BlurRadius="15" ShadowDepth="0"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SubPlayTagButton_SelectedEffect" TargetType="TextBlock">
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Red" BlurRadius="5" ShadowDepth="0"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AboutBetButton_NormalEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/AboutBetButton_Normal.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AboutBetButton_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/AboutBetButton_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ConfirmBetButton_NormalEffect" TargetType="Image">
+        <Setter Property="Source" Value="Images/ConfirmBetButton_Normal.png"/>
+    </Style>
+    <Style x:Key="ConfirmBetButton_HoverEffect" TargetType="Image">
+        <Setter Property="Source" Value="Images/ConfirmBetButton_Hover.png"/>
+    </Style>
+
+    <Style x:Key="GameButton_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/GameButton_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GameButton_SelectedEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/GameButton_Selected.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="GameButtonOfLeft_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/GameButtonOfLeft_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GameButtonOfLeft_SelectedEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/GameButtonOfLeft_Selected.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
 </ResourceDictionary>

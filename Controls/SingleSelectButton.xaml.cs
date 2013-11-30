@@ -51,11 +51,11 @@ namespace Controls
                 bool te = (bool)e.NewValue;
                 if (te)
                 {
-                    td.GridOfSingleSelectButton.Style = (Style)td.Resources["PressedEffect"];
+                    td.GridOfSingleSelectButton.Style = (Style)td.Resources["SingleSelectButton_SelectedEffect"];
                 }
                 else
                 {
-                    td.GridOfSingleSelectButton.Style = (Style)td.Resources["NormalEffect"];
+                    td.GridOfSingleSelectButton.Style = (Style)td.Resources["SingleSelectButton_NormalEffect"];
                 }
             }));
         #endregion

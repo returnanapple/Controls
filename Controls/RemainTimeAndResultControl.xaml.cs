@@ -71,22 +71,6 @@ namespace Controls
                 }
             }));
         /// <summary>
-        /// 彩票类型
-        /// </summary>
-        public string Lottery
-        {
-            get { return (string)GetValue(LotteryProperty); }
-            set { SetValue(LotteryProperty, value); }
-        }
-        public static readonly DependencyProperty LotteryProperty =
-            DependencyProperty.Register("Lottery", typeof(string), typeof(RemainTimeAndResultControl), new PropertyMetadata("", (d, e) =>
-            {
-                RemainTimeAndResultControl td = (RemainTimeAndResultControl)d;
-                td.LotteryTextBlock.Text = (string)e.NewValue;
-            }));
-
-
-        /// <summary>
         /// 当前期号
         /// </summary>
         public string CurrentIssue
@@ -122,6 +106,7 @@ namespace Controls
                 td.CurrentResultItemsControl.ItemsSource = sl;
             }));
         #endregion
+
         #region 动画结束事件
         void FlickerAndDescendingCompleted(object sender, EventArgs e)
         {

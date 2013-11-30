@@ -12,7 +12,6 @@
             <ImageBrush ImageSource=".png"/>
         </Canvas.Background>
         
-        <local:HistoryResultControl Canvas.Left="626"/>
         <local:BulletinControl Canvas.Left="630" Canvas.Top="207"/>
         <local:RemainTimeAndResultControl/>
 

@@ -96,11 +96,11 @@
     <Compile Include="DataButton.xaml.cs">
       <DependentUpon>DataButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HistoryResultControl.xaml.cs">
-      <DependentUpon>HistoryResultControl.xaml</DependentUpon>
+    <Compile Include="GameButton.xaml.cs">
+      <DependentUpon>GameButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HistoryResultIcon.xaml.cs">
-      <DependentUpon>HistoryResultIcon.xaml</DependentUpon>
+    <Compile Include="GameButtonOfLeft.xaml.cs">
+      <DependentUpon>GameButtonOfLeft.xaml</DependentUpon>
     </Compile>
     <Compile Include="LotteryButton.xaml.cs">
       <DependentUpon>LotteryButton.xaml</DependentUpon>
@@ -133,8 +133,8 @@
     <Compile Include="ShowAHistoryResultTool.xaml.cs">
       <DependentUpon>ShowAHistoryResultTool.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SilverlightControl1.xaml.cs">
-      <DependentUpon>SilverlightControl1.xaml</DependentUpon>
+    <Compile Include="ShowAWinningTool.xaml.cs">
+      <DependentUpon>ShowAWinningTool.xaml</DependentUpon>
     </Compile>
     <Compile Include="SingleSelectButton.xaml.cs">
       <DependentUpon>SingleSelectButton.xaml</DependentUpon>
@@ -172,11 +172,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HistoryResultControl.xaml">
+    <Page Include="GameButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HistoryResultIcon.xaml">
+    <Page Include="GameButtonOfLeft.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,7 +220,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SilverlightControl1.xaml">
+    <Page Include="ShowAWinningTool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,138 +250,33 @@
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\彩种选中效果.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\11运夺金.png" />
-    <Resource Include="Images\体彩P3.png" />
-    <Resource Include="Images\北京PK拾.png" />
-    <Resource Include="Images\广东11选5.png" />
-    <Resource Include="Images\新疆时时彩.png" />
-    <Resource Include="Images\江西时时彩.png" />
-    <Resource Include="Images\福彩3D.png" />
-    <Resource Include="Images\菲乐时时彩.png" />
-    <Resource Include="Images\重庆时时彩.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\会员管理.png" />
-    <Resource Include="Images\会员管理%28选中%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\资金管理%28选中%29.png" />
-    <Resource Include="Images\资金管理.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\投注明细%28选中%29.png" />
-    <Resource Include="Images\投注明细.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\数据报表%28选中%29.png" />
-    <Resource Include="Images\数据报表.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\个人中心%28选中%29.png" />
+    <Resource Include="Images\DataButton_Hover.png" />
+    <Resource Include="Images\DataButton_Selected.png" />
     <Resource Include="Images\个人中心.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\积分兑换%28选中%29.png" />
-    <Resource Include="Images\积分兑换.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\在线客服%28选中%29.png" />
+    <Resource Include="Images\会员管理.png" />
     <Resource Include="Images\在线客服.png" />
+    <Resource Include="Images\安全退出.png" />
+    <Resource Include="Images\投注明细.png" />
+    <Resource Include="Images\数据报表.png" />
+    <Resource Include="Images\资金管理.png" />
+    <Resource Include="Images\首页.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\快捷按键bg.png" />
-    <Resource Include="Images\快捷按键按下bg.png" />
+    <Resource Include="Images\QuickButton_Normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\提现.png" />
-    <Resource Include="Images\充值.png" />
+    <Resource Include="Images\QuickButton_Hover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\单个数字选择键bg.png" />
-    <Resource Include="Images\单个数字选择键按下bg.png" />
+    <Resource Include="Images\充值_Hover.png" />
+    <Resource Include="Images\提现_Hover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\多重数字选择键bg.png" />
-    <Resource Include="Images\多重数字选择键按下bg.png" />
+    <Resource Include="Images\充值_Normal.png" />
+    <Resource Include="Images\提现_Normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\0.png" />
-    <Resource Include="Images\1.png" />
-    <Resource Include="Images\2.png" />
-    <Resource Include="Images\3.png" />
-    <Resource Include="Images\4.png" />
-    <Resource Include="Images\5.png" />
-    <Resource Include="Images\6.png" />
-    <Resource Include="Images\7.png" />
-    <Resource Include="Images\8.png" />
-    <Resource Include="Images\9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\全.png" />
-    <Resource Include="Images\单.png" />
-    <Resource Include="Images\双.png" />
-    <Resource Include="Images\大.png" />
-    <Resource Include="Images\小.png" />
-    <Resource Include="Images\清.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\个十百千万bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\玩法标签选中bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\选号区bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\万位.png" />
-    <Resource Include="Images\个位.png" />
-    <Resource Include="Images\十位.png" />
-    <Resource Include="Images\千位.png" />
-    <Resource Include="Images\百位.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\添加or清空or追号bg.png" />
-    <Resource Include="Images\添加or清空or追号按下bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\添加_文字和图标.png" />
-    <Resource Include="Images\清空_文字和图标.png" />
-    <Resource Include="Images\追号_文字和图标.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\确认投注.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\系统公告%28单独%29bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\历史记录结果图标.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\彩种选择条bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\系统公告bg.png" />
-    <Resource Include="Images\系统公告标题.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\历史记录标题.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\历史记录bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\剩余时间bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\剩余时间和开奖结果bg.png" />
+    <Resource Include="Images\最新公告Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\led0.png" />
@@ -394,6 +289,11 @@
     <Resource Include="Images\led7.png" />
     <Resource Include="Images\led8.png" />
     <Resource Include="Images\led9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\RemainTime_Bg.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\led冒号.png" />
   </ItemGroup>
   <ItemGroup>
@@ -411,17 +311,82 @@
     <Resource Include="Images\结果9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\normal.png" />
-    <Resource Include="Images\pressed.png" />
+    <Resource Include="Images\0.png" />
+    <Resource Include="Images\1.png" />
+    <Resource Include="Images\10.png" />
+    <Resource Include="Images\11.png" />
+    <Resource Include="Images\2.png" />
+    <Resource Include="Images\3.png" />
+    <Resource Include="Images\4.png" />
+    <Resource Include="Images\5.png" />
+    <Resource Include="Images\6.png" />
+    <Resource Include="Images\7.png" />
+    <Resource Include="Images\8.png" />
+    <Resource Include="Images\9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\scrollviewer向上.png" />
+    <Resource Include="Images\SingleSelectButton_Normal.png" />
+    <Resource Include="Images\SingleSelectButton_Selected.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\scrollviewer向下.png" />
+    <Resource Include="Images\MultiSelectButton_Hover.png" />
+    <Resource Include="Images\MultiSelectButton_Normal.png" />
+    <Resource Include="Images\MultiSelectButton_Selected.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\scrollviewer滑块.png" />
+    <Resource Include="Images\全.png" />
+    <Resource Include="Images\单.png" />
+    <Resource Include="Images\双.png" />
+    <Resource Include="Images\大.png" />
+    <Resource Include="Images\小.png" />
+    <Resource Include="Images\清.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\万位.png" />
+    <Resource Include="Images\个位.png" />
+    <Resource Include="Images\十位.png" />
+    <Resource Include="Images\千位.png" />
+    <Resource Include="Images\百位.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PlayTagButton_Hover.png" />
+    <Resource Include="Images\PlayTagButton_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AboutBetButton_Hover.png" />
+    <Resource Include="Images\AboutBetButton_Normal.png" />
+    <Resource Include="Images\添加.png" />
+    <Resource Include="Images\清除.png" />
+    <Resource Include="Images\追号.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ConfirmBetButton_Hover.png" />
+    <Resource Include="Images\ConfirmBetButton_Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="temp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GameButtonOfLeft_Hover.png" />
+    <Resource Include="Images\GameButtonOfLeft_Selected.png" />
+    <Resource Include="Images\GameButtonOfRight_Hover.png" />
+    <Resource Include="Images\GameButtonOfRight_Selected.png" />
+    <Resource Include="Images\GameButton_Hover.png" />
+    <Resource Include="Images\GameButton_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\低频彩_Hover.png" />
+    <Resource Include="Images\低频彩_Normal.png" />
+    <Resource Include="Images\其他高频彩_Hover.png" />
+    <Resource Include="Images\其他高频彩_Normal.png" />
+    <Resource Include="Images\十一选五_Hover.png" />
+    <Resource Include="Images\十一选五_Normal.png" />
+    <Resource Include="Images\时时彩_Hover.png" />
+    <Resource Include="Images\时时彩_Normal.png" />
+    <Resource Include="Images\棋牌游戏_Hover.png" />
+    <Resource Include="Images\棋牌游戏_Normal.png" />
+    <Resource Include="Images\活动专区_Hover.png" />
+    <Resource Include="Images\活动专区_Normal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

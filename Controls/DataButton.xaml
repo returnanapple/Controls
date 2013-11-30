@@ -4,48 +4,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Height="53" Width="177" x:Name="DataButtonX">
-    <UserControl.Resources>
-        <Storyboard x:Key="MouseEnterEffect" Duration="0:0:0">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DataGridTransform"
-                                           Storyboard.TargetProperty="X">
-                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DataGridTransform"
-                                           Storyboard.TargetProperty="Y">
-                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+    Height="52" Width="92">
 
-        <Storyboard x:Key="MouseLeaveEffect" Duration="0:0:0">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DataGridTransform"
-                                           Storyboard.TargetProperty="X">
-                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DataGridTransform"
-                                           Storyboard.TargetProperty="Y">
-                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
-        <Grid.RenderTransform>
-            <TranslateTransform x:Name="DataGridTransform" X="0" Y="0"/>
-        </Grid.RenderTransform>
-
-        <Image x:Name="DataImage" Source="{Binding DataImagePath, ElementName=DataButtonX}" 
-               Stretch="None" Opacity="1"/>
-        <Image x:Name="DataImageOfSelected" Source="{Binding DataImagePathOfSelected, ElementName=DataButtonX}" 
-               Stretch="None" Opacity="0"/>
-
-        <Grid x:Name="Cover" Width="164" Height="40"
-              MouseEnter="CoverMouseEnter"
-              MouseLeave="CoverMouseLeave"
-              MouseLeftButtonDown="CoverMouseLeftButtonDown">
-            <Grid.Background>
-                <SolidColorBrush Color="White" Opacity="0"/>
-            </Grid.Background>
-        </Grid>
+    <Grid x:Name="Bg"
+          MouseEnter="MouseEnterAction"
+          MouseLeave="MouseLeaveAction"
+          MouseLeftButtonDown="MouseLeftButtonDownAction">
+        <Image x:Name="ButtonTextImage" Source="Images/首页.png" Stretch="None"/>
     </Grid>
 </UserControl>

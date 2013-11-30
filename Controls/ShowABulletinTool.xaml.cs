@@ -20,17 +20,37 @@ namespace Controls
         }
 
         #region 依赖属性
-        public string BulletinText
+
+
+        public string Tittle
         {
-            get { return (string)GetValue(BulletinTextProperty); }
-            set { SetValue(BulletinTextProperty, value); }
+            get { return (string)GetValue(TittleProperty); }
+            set { SetValue(TittleProperty, value); }
         }
-        public static readonly DependencyProperty BulletinTextProperty =
-            DependencyProperty.Register("BulletinText", typeof(string), typeof(ShowABulletinTool), new PropertyMetadata("", (d, e) =>
+        public static readonly DependencyProperty TittleProperty =
+            DependencyProperty.Register("Tittle", typeof(string), typeof(ShowABulletinTool), new PropertyMetadata("", (d, e) =>
             {
                 ShowABulletinTool td = (ShowABulletinTool)d;
-                td.ShowABulletinTextBlock.Text = (string)e.NewValue;
+                string te = (string)e.NewValue;
+                td.TittleTextBlock.Text = te;
             }));
+
+
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(ShowABulletinTool), new PropertyMetadata("", (d, e) =>
+            {
+                ShowABulletinTool td = (ShowABulletinTool)d;
+                string te = (string)e.NewValue;
+                td.TextTextBlock.Text = te;
+            }));
+
+
+
         #endregion
     }
 }

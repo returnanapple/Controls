@@ -46,9 +46,7 @@ namespace Controls
             {
                 ShowAHistoryResultTool td = (ShowAHistoryResultTool)d;
                 string te = (string)e.NewValue;
-                List<string> ahr = te.Split(new Char[] { ',' }).ToList();
-                td.AHistoryResultItemsControl.Items.Clear();
-                td.AHistoryResultItemsControl.ItemsSource = ahr;
+                td.AHistoryResultTextBlock.Text = te;
             }));
 
 

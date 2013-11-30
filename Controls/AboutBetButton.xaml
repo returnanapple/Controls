@@ -4,53 +4,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="82" Height="25" x:Name="AboutBetButtonX">
+    Width="77" Height="36">
 
     <UserControl.Resources>
-        <Style x:Key="NormalEffect" TargetType="Grid">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <ImageBrush ImageSource="Images/添加or清空or追号bg.png"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="PressedEffect" TargetType="Grid">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <ImageBrush ImageSource="Images/添加or清空or追号按下bg.png"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Storyboard x:Key="MouseEnterEffect" Duration="0:0:0">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="AboutBetGridTransform"
-                                           Storyboard.TargetProperty="X">
-                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="AboutBetGridTransform"
-                                           Storyboard.TargetProperty="Y">
-                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="MouseLeaveEffect" Duration="0:0:0">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="AboutBetGridTransform"
-                                           Storyboard.TargetProperty="X">
-                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="AboutBetGridTransform"
-                                           Storyboard.TargetProperty="Y">
-                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid x:Name="AboutBetGrid" Style="{StaticResource NormalEffect}"
-          MouseEnter="AboutBetGridMouseEnter" 
-          MouseLeave="AboutBetGridMouseLeave" 
-          MouseLeftButtonDown="AboutBetGridMouseLeftButtonDown">
-        <Grid.RenderTransform>
-            <TranslateTransform x:Name="AboutBetGridTransform" X="0" Y="0"/>
-        </Grid.RenderTransform>
-        <Image Source="{Binding AboutBetImagePath, ElementName=AboutBetButtonX}" Stretch="None" Margin="0,0,9,0"/>
+    <Grid x:Name="GridOfAboutBetButton" Style="{StaticResource AboutBetButton_NormalEffect}"
+          MouseEnter="MouseEnterAction" 
+          MouseLeave="MouseLeaveAction">
+
+        <Image x:Name="ButtonTextImage" Source="Images/添加.png" Stretch="None"/>
     </Grid>
 </UserControl>

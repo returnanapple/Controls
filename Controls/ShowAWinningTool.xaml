@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Controls.ShowAWinningTool"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="191">
+
+    <UserControl.Resources>
+        <Style x:Key="FontStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#FFB9A768"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="IssueTextBlock" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource FontStyle}" Text="00000000000"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource FontStyle}" Text="￥ "/>
+        <TextBlock x:Name="MoneyTextBlock" Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FontStyle}" Text="111011"/>
+    </Grid>
+</UserControl>

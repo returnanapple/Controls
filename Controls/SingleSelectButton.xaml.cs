@@ -30,7 +30,7 @@ namespace Controls
             set { SetValue(NumberProperty, value); }
         }
         public static readonly DependencyProperty NumberProperty =
-            DependencyProperty.Register("Number", typeof(string), typeof(SingleSelectButton), new PropertyMetadata("", (d, e) =>
+            DependencyProperty.Register("Number", typeof(string), typeof(SingleSelectButton), new PropertyMetadata("1", (d, e) =>
             {
                 SingleSelectButton td = (SingleSelectButton)d;
                 string te = (string)e.NewValue;

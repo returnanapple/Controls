@@ -13,16 +13,16 @@ using System.Windows.Shapes;
 
 namespace Controls
 {
-    public partial class LotteryButton : UserControl
+    public partial class GameButtonOfRight : UserControl
     {
-        public LotteryButton()
+        public GameButtonOfRight()
         {
             InitializeComponent();
         }
 
         #region 依赖属性
         /// <summary>
-        /// 彩票
+        /// 按键文本
         /// </summary>
         public string ButtonText
         {
@@ -30,16 +30,14 @@ namespace Controls
             set { SetValue(ButtonTextProperty, value); }
         }
         public static readonly DependencyProperty ButtonTextProperty =
-            DependencyProperty.Register("ButtonText", typeof(string), typeof(LotteryButton), new PropertyMetadata("重庆时时彩", (d, e) =>
+            DependencyProperty.Register("ButtonText", typeof(string), typeof(GameButtonOfRight), new PropertyMetadata("活动专区", (d, e) =>
             {
-                LotteryButton td = (LotteryButton)d;
+                GameButtonOfRight td = (GameButtonOfRight)d;
                 string te = (string)e.NewValue;
-                td.TextBlockOfLotteryButton.Text = te;
+                td.ImageOfButtonText.Source = new BitmapImage(new Uri(String.Format("Images/{0}_Normal.png", te), UriKind.RelativeOrAbsolute));
             }));
-
-
         /// <summary>
-        /// 是否被选择
+        /// 是否被选中
         /// </summary>
         public bool Selected
         {
@@ -47,23 +45,22 @@ namespace Controls
             set { SetValue(SelectedProperty, value); }
         }
         public static readonly DependencyProperty SelectedProperty =
-            DependencyProperty.Register("Selected", typeof(bool), typeof(LotteryButton), new PropertyMetadata(false, (d, e) =>
+            DependencyProperty.Register("Selected", typeof(bool), typeof(GameButtonOfRight), new PropertyMetadata(false, (d, e) =>
             {
-                LotteryButton td = (LotteryButton)d;
+                GameButtonOfRight td = (GameButtonOfRight)d;
                 bool te = (bool)e.NewValue;
                 if (te)
                 {
-                    td.GridOfLotteryButton.Style = (Style)td.Resources["LotteryButton_SelectedEffect"];
-                    td.TextBlockOfLotteryButton.Style = (Style)td.Resources["FontOfLotteryButton_HoverEffect"];
+                    td.GameButtonOfRightGrid.Style = (Style)td.Resources["GameButtonOfRight_SelectedEffect"];
+                    td.ImageOfButtonText.Source = new BitmapImage(new Uri(String.Format("Images/{0}_Hover.png", td.ButtonText), UriKind.RelativeOrAbsolute));
                 }
                 else
                 {
-                    td.GridOfLotteryButton.Style = null;
-                    td.TextBlockOfLotteryButton.Style = (Style)td.Resources["FontOfLotteryButton_NormalEffect"];
+                    td.GameButtonOfRightGrid.Style = null;
+                    td.ImageOfButtonText.Source = new BitmapImage(new Uri(String.Format("Images/{0}_Normal.png", td.ButtonText), UriKind.RelativeOrAbsolute));
                 }
             }));
         #endregion
-
         #region 鼠标事件
         /// <summary>
         /// 鼠标进入
@@ -74,8 +71,8 @@ namespace Controls
         {
             if (!Selected)
             {
-                GridOfLotteryButton.Style = (Style)this.Resources["LotteryButton_HoverEffect"];
-                TextBlockOfLotteryButton.Style = (Style)this.Resources["FontOfLotteryButton_HoverEffect"];
+                GameButtonOfRightGrid.Style = (Style)this.Resources["GameButtonOfRight_HoverEffect"];
+                ImageOfButtonText.Source = new BitmapImage(new Uri(String.Format("Images/{0}_Hover.png", ButtonText), UriKind.RelativeOrAbsolute));
             }
         }
         /// <summary>
@@ -87,8 +84,8 @@ namespace Controls
         {
             if (!Selected)
             {
-                GridOfLotteryButton.Style = null;
-                TextBlockOfLotteryButton.Style = (Style)this.Resources["FontOfLotteryButton_NormalEffect"];
+                GameButtonOfRightGrid.Style = null;
+                ImageOfButtonText.Source = new BitmapImage(new Uri(String.Format("Images/{0}_Normal.png", ButtonText), UriKind.RelativeOrAbsolute));
             }
         }
         /// <summary>

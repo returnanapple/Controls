@@ -40,7 +40,7 @@ namespace Controls
                 }
                 else
                 {
-                    td.PlayTagGrid.Style = null;
+                    td.PlayTagGrid.Style = (Style)td.Resources["PlayTagButton_NormalEffect"];
                     td.PlayTagTextBlock.Style = (Style)td.Resources["TextOfPlayTagButton_NormalEffect"];
                 }
             }));
@@ -53,7 +53,7 @@ namespace Controls
             set { SetValue(PlayTagTextProperty, value); }
         }
         public static readonly DependencyProperty PlayTagTextProperty =
-            DependencyProperty.Register("PlayTagText", typeof(string), typeof(PlayTagButton), new PropertyMetadata("", (d, e) =>
+            DependencyProperty.Register("PlayTagText", typeof(string), typeof(PlayTagButton), new PropertyMetadata("五星直选", (d, e) =>
             {
                 PlayTagButton td = (PlayTagButton)d;
                 td.PlayTagTextBlock.Text = (string)e.NewValue;
@@ -81,7 +81,7 @@ namespace Controls
         {
             if (!Selected)
             {
-                PlayTagGrid.Style = null;
+                PlayTagGrid.Style = (Style)this.Resources["PlayTagButton_NormalEffect"]; ;
             }
         }
         /// <summary>

@@ -5,11 +5,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Controls" x:Class="Controls.MainPage"
     mc:Ignorable="d">
-    <Grid Width="700" Height="500" Background="Gray">
-        <local:GameButton x:Name="GB" HorizontalAlignment="Left" Margin="113,165,0,0" VerticalAlignment="Top"
-                          ButtonText="十一选五"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="210,350,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <local:GameButtonOfLeft HorizontalAlignment="Left" Margin="367,233,0,0" VerticalAlignment="Top"/>
+    <Grid Width="700" Height="700">
+        <local:PlayTagButton HorizontalAlignment="Left" Margin="380,104,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 
 

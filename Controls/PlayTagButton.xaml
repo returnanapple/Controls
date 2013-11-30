@@ -13,8 +13,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    
-    <Grid x:Name="PlayTagGrid">
+
+    <Grid x:Name="PlayTagGrid" Style="{StaticResource PlayTagButton_NormalEffect}">
         <TextBlock x:Name="PlayTagTextBlock" Text="五星直选" Style="{StaticResource TextOfPlayTagButton_NormalEffect}"
                    FontSize="14" FontFamily="Fonts/simsun.ttc#SimSun"
                    FontWeight="Bold"

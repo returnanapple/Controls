@@ -19,15 +19,5 @@ namespace Controls
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //stb.Selected = false;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            GB.Selected = false;
-        }
     }
 }

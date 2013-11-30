@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="Controls.DataButton"
+﻿<UserControl x:Class="Controls.GameButtonOfRight"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Height="52" Width="96">
+    Width="113" Height="39">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -14,9 +14,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid x:Name="Bg">
-        <Image x:Name="ButtonTextImage" Source="Images/首页.png" Stretch="None"/>
-        <Grid Background="#00FFFFFF" MouseEnter="MouseEnterAction" MouseLeave="MouseLeaveAction"
-              MouseLeftButtonDown="MouseLeftButtonDownAction"/>
+    <Grid x:Name="GameButtonOfRightGrid">
+        <Image x:Name="ImageOfButtonText" Source="Images/活动专区_Normal.png" Stretch="None"/>
+        <Grid Background="#00FFFFFF" MouseEnter="MouseEnterAction" MouseLeave="MouseLeaveAction" MouseLeftButtonDown="MouseLeftButtonDownAction"/>
     </Grid>
 </UserControl>

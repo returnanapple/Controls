@@ -463,17 +463,24 @@
         </Setter>
     </Style>
 
+    <Style x:Key="PlayTagButton_NormalEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/PlayTagButton_Normal.png" Stretch="Fill"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="PlayTagButton_HoverEffect" TargetType="Grid">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="Images/PlayTagButton_Hover.png"/>
+                <ImageBrush ImageSource="Images/PlayTagButton_Hover.png" Stretch="Fill"/>
             </Setter.Value>
         </Setter>
     </Style>
     <Style x:Key="PlayTagButton_SelectedEffect" TargetType="Grid">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="Images/PlayTagButton_Selected.png"/>
+                <ImageBrush ImageSource="Images/PlayTagButton_Selected.png" Stretch="Fill"/>
             </Setter.Value>
         </Setter>
     </Style>
@@ -549,5 +556,40 @@
         </Setter>
     </Style>
 
+    <Style x:Key="GameButtonOfRight_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/GameButtonOfRight_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GameButtonOfRight_SelectedEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/GameButtonOfRight_Selected.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LotteryButton_HoverEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/LotteryButton_Hover.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="LotteryButton_SelectedEffect" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="Images/LotteryButton_Selected.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="FontOfLotteryButton_NormalEffect" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#FFB9A868"/>
+    </Style>
+    <Style x:Key="FontOfLotteryButton_HoverEffect" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#FFF4E087"/>
+    </Style>
 
 </ResourceDictionary>

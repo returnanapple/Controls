@@ -31,7 +31,7 @@ namespace Controls
             set { SetValue(TittleProperty, value); }
         }
         public static readonly DependencyProperty TittleProperty =
-            DependencyProperty.Register("Tittle", typeof(string), typeof(BetBar), new PropertyMetadata("", (d, e) =>
+            DependencyProperty.Register("Tittle", typeof(string), typeof(BetBar), new PropertyMetadata("万位", (d, e) =>
             {
                 BetBar td = (BetBar)d;
                 string te = (string)e.NewValue;

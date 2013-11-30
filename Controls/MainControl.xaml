@@ -8,7 +8,42 @@
     Height="700" Width="1024">
     <Canvas>
         <Canvas.Background>
-            <ImageBrush ImageSource="temp.png"/>
+            <ImageBrush ImageSource="temp1.png"/>
         </Canvas.Background>
+        <local:QuickButton ButtonText="提现" Canvas.Top="204" Canvas.Left="8"/>
+        <local:QuickButton ButtonText="充值" Canvas.Top="204" Canvas.Left="73"/>
+        <local:QuickButton ButtonText="信封" Canvas.Top="204" Canvas.Left="138"/>
+
+        <ItemsControl Height="160" Width="211" Canvas.Top="308">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:ShowAWinningTool Margin="0,0,0,7"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <ItemsControl Height="164" Width="211" Canvas.Top="526">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:ShowABulletinTool/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <local:DataButton Canvas.Left="229" Canvas.Top="15" ButtonText="首页"/>
+        <local:DataButton Canvas.Left="325" Canvas.Top="15" ButtonText="个人中心"/>
+        <local:DataButton Canvas.Left="421" Canvas.Top="15" ButtonText="资金管理"/>
+        <local:DataButton Canvas.Left="517" Canvas.Top="15" ButtonText="投注明细"/>
+        <local:DataButton Canvas.Left="613" Canvas.Top="15" ButtonText="数据报表"/>
+        <local:DataButton Canvas.Left="709" Canvas.Top="15" ButtonText="会员管理"/>
+        <local:DataButton Canvas.Left="805" Canvas.Top="15" ButtonText="在线客服"/>
+        <local:DataButton Canvas.Left="901" Canvas.Top="15" ButtonText="安全退出"/>
+
+        <Image Source="Images/GameButtonsBg.png" Canvas.Left="214" Canvas.Top="75"/>
+        <local:GameButtonOfLeft ButtonText="时时彩" Canvas.Left="213" Canvas.Top="71"/>
+        <local:GameButton ButtonText="十一选五" Canvas.Left="326" Canvas.Top="70"/>
+        <local:GameButton ButtonText="其他高频彩" Canvas.Left="437" Canvas.Top="70"/>
+        <local:GameButton ButtonText="低频彩" Canvas.Left="548" Canvas.Top="70"/>
+        <local:GameButton ButtonText="棋牌游戏" Canvas.Left="659" Canvas.Top="70"/>
+        <local:GameButtonOfRight ButtonText="活动专区" Canvas.Left="770" Canvas.Top="71"/>
     </Canvas>
 </UserControl>

@@ -30,7 +30,7 @@ namespace Controls
             set { SetValue(ButtonTextProperty, value); }
         }
         public static readonly DependencyProperty ButtonTextProperty =
-            DependencyProperty.Register("ButtonText", typeof(string), typeof(DataButton), new PropertyMetadata("", (d, e) =>
+            DependencyProperty.Register("ButtonText", typeof(string), typeof(DataButton), new PropertyMetadata("首页", (d, e) =>
             {
                 DataButton td = (DataButton)d;
                 string te = (string)e.NewValue;

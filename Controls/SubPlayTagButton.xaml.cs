@@ -51,7 +51,7 @@ namespace Controls
             set { SetValue(SubPlayTagTextProperty, value); }
         }
         public static readonly DependencyProperty SubPlayTagTextProperty =
-            DependencyProperty.Register("SubPlayTagText", typeof(string), typeof(SubPlayTagButton), new PropertyMetadata("", (d, e) =>
+            DependencyProperty.Register("SubPlayTagText", typeof(string), typeof(SubPlayTagButton), new PropertyMetadata("五星复式", (d, e) =>
             {
                 SubPlayTagButton td = (SubPlayTagButton)d;
                 td.SubPlayTagTextBlock.Text = (string)e.NewValue;

@@ -15,7 +15,7 @@
     </UserControl.Resources>
 
     <Grid x:Name="GridOfGameButton">
-        <Image x:Name="ImageOfButtonText" Source="images/十一选五_Normal.png" Stretch="None"/>
+        <Image x:Name="ImageOfButtonText" Source="Images/十一选五_Normal.png" Stretch="None"/>
         <Grid Background="#00FFFFFF" MouseEnter="MouseEnterAction" MouseLeave="MouseLeaveAction" MouseLeftButtonDown="MouseLeftButtonDownAction"/>
     </Grid>
 </UserControl>

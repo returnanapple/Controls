@@ -5,20 +5,54 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Controls" x:Class="Controls.LotteryContentControl"
     mc:Ignorable="d"
-    Width="850" Height="572">
-
+    Width="814" Height="568">
     <Canvas>
         <Canvas.Background>
-            <ImageBrush ImageSource=".png"/>
+            <ImageBrush ImageSource="Images/LotteryContentControl_Bg.png"/>
         </Canvas.Background>
-        
-        <local:BulletinControl Canvas.Left="630" Canvas.Top="207"/>
-        <local:RemainTimeAndResultControl/>
 
+        <local:RemainTimeAndResultControl Canvas.Left="4"/>
 
+        <ItemsControl Width="191" Height="100" Canvas.Left="603" Canvas.Top="40">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:ShowAHistoryResultTool Margin="0,0,0,8"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
+        <ItemsControl Width="811" Height="46" Canvas.Left="3" Canvas.Top="140">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:PlayTagButton Margin="19,0,6,0"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
+        <ItemsControl Height="14" Canvas.Top="183" Width="814">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:SubPlayTagButton Margin="35,0,8,0"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
+        <local:BetTool Canvas.Left="63" Canvas.Top="212"/>
+
+        <local:AboutBetButton Canvas.Left="312" Canvas.Top="470" ButtonText="添加"/>
+        <local:AboutBetButton Canvas.Left="404" Canvas.Top="470" ButtonText="清除"/>
+        <local:AboutBetButton Canvas.Left="496" Canvas.Top="470" ButtonText="追号"/>
+        <local:ConfirmBetButton Canvas.Left="542" Canvas.Top="392"/>
 
     </Canvas>
 </UserControl>

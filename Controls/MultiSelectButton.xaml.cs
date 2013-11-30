@@ -29,7 +29,7 @@ namespace Controls
             set { SetValue(MultiSelectTextProperty, value); }
         }
         public static readonly DependencyProperty MultiSelectTextProperty =
-            DependencyProperty.Register("MultiSelectText", typeof(string), typeof(MultiSelectButton), new PropertyMetadata("", (d, e) =>
+            DependencyProperty.Register("MultiSelectText", typeof(string), typeof(MultiSelectButton), new PropertyMetadata("全", (d, e) =>
             {
                 MultiSelectButton td = (MultiSelectButton)d;
                 string te = (string)e.NewValue;

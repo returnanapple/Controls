@@ -82,9 +82,6 @@
     <Compile Include="BetTool.xaml.cs">
       <DependentUpon>BetTool.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BulletinControl.xaml.cs">
-      <DependentUpon>BulletinControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Classes\BetInfo.cs" />
     <Compile Include="Classes\LDItemToBool.cs" />
     <Compile Include="Classes\LotteryAndDataItems.cs" />
@@ -101,6 +98,9 @@
     </Compile>
     <Compile Include="GameButtonOfLeft.xaml.cs">
       <DependentUpon>GameButtonOfLeft.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameButtonOfRight.xaml.cs">
+      <DependentUpon>GameButtonOfRight.xaml</DependentUpon>
     </Compile>
     <Compile Include="LotteryButton.xaml.cs">
       <DependentUpon>LotteryButton.xaml</DependentUpon>
@@ -160,10 +160,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BulletinControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ConfirmBetButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -177,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameButtonOfLeft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameButtonOfRight.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -364,9 +364,6 @@
     <Resource Include="Images\ConfirmBetButton_Normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="temp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\GameButtonOfLeft_Hover.png" />
     <Resource Include="Images\GameButtonOfLeft_Selected.png" />
     <Resource Include="Images\GameButtonOfRight_Hover.png" />
@@ -387,6 +384,23 @@
     <Resource Include="Images\棋牌游戏_Normal.png" />
     <Resource Include="Images\活动专区_Hover.png" />
     <Resource Include="Images\活动专区_Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GameButtonsBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LotteryButton_Hover.png" />
+    <Resource Include="Images\LotteryButton_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\信封_Hover.png" />
+    <Resource Include="Images\信封_Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PlayTagButton_Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LotteryContentControl_Bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -27,7 +27,7 @@ namespace Controls
             set { SetValue(ButtonTextProperty, value); }
         }
         public static readonly DependencyProperty ButtonTextProperty =
-            DependencyProperty.Register("ButtonText", typeof(string), typeof(AboutBetButton), new PropertyMetadata("", (d, e) =>
+            DependencyProperty.Register("ButtonText", typeof(string), typeof(AboutBetButton), new PropertyMetadata("添加", (d, e) =>
             {
                 AboutBetButton td = (AboutBetButton)d;
                 string te = (string)e.NewValue;

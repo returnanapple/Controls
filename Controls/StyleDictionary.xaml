@@ -4,8 +4,8 @@
     xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
 
     <Style TargetType="ScrollBar" x:Key="NewScrollBarStyle">
-        <Setter Property="MinWidth" Value="10"/>
-        <Setter Property="MinHeight" Value="10"/>
+        <Setter Property="MinWidth" Value="13"/>
+        <Setter Property="MinHeight" Value="17"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -161,25 +161,129 @@
                                     <vsm:VisualStateManager.VisualStateGroups>
                                         <vsm:VisualStateGroup x:Name="CommonStates">
                                             <vsm:VisualState x:Name="Normal" />
-                                            <vsm:VisualState x:Name="MouseOver"/>
-                                            <vsm:VisualState x:Name="Pressed"/>
-                                            <vsm:VisualState x:Name="Disabled"/>
+                                            <vsm:VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="Background" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="BackgroundMouseOver" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Duration="0" To="#7FFFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Duration="0" To="#CCFFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Duration="0" To="#F2FFFFFF"/>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="Background" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="BackgroundPressed" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Storyboard.TargetName="Highlight" Storyboard.TargetProperty="(UIElement.Opacity)" Duration="0" To="1"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Duration="0" To="#6BFFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Duration="0" To="#C6FFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Duration="0" To="#EAFFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Duration="0" To="#F4FFFFFF"/>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="DisabledElement" Storyboard.TargetProperty="Opacity" To=".7" />
+                                                </Storyboard>
+                                            </vsm:VisualState>
                                         </vsm:VisualStateGroup>
                                     </vsm:VisualStateManager.VisualStateGroups>
-                                    <Image Source="Images/scrollviewer向下.png" Stretch="None"/>
+                                    <Rectangle x:Name="Background" Opacity="0" RadiusX="2" RadiusY="2" Fill="#FF1F3B53" StrokeThickness="1">
+                                        <Rectangle.Stroke>
+                                            <LinearGradientBrush EndPoint="1,.5" StartPoint="0,.5">
+                                                <GradientStop Color="#FF647480" Offset="1"/>
+                                                <GradientStop Color="#FFAEB7BF" Offset="0"/>
+                                                <GradientStop Color="#FF919EA7" Offset="0.35"/>
+                                                <GradientStop Color="#FF7A8A99" Offset="0.35"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Stroke>
+                                    </Rectangle>
+                                    <Rectangle x:Name="BackgroundMouseOver" Opacity="0" RadiusX="2" RadiusY="2" Fill="#FF448DCA" StrokeThickness="1" Stroke="#00000000"/>
+                                    <Rectangle x:Name="BackgroundPressed" Opacity="0" RadiusX="2" RadiusY="2" Fill="#FF448DCA" StrokeThickness="1" Stroke="#00000000"/>
+                                    <Rectangle x:Name="BackgroundGradient" Opacity="0" RadiusX="1" RadiusY="1" StrokeThickness="1" Margin="1" Stroke="#FFFFFFFF">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush StartPoint="0,.7" EndPoint="1,.7">
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.013" />
+                                                <GradientStop Color="#F9FFFFFF" Offset="0.375" />
+                                                <GradientStop Color="#E5FFFFFF" Offset="0.603" />
+                                                <GradientStop Color="#C6FFFFFF" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle x:Name="Highlight" Opacity="0" RadiusX="1" RadiusY="1" IsHitTestVisible="false" Stroke="#FF6DBDD1" StrokeThickness="1" Margin="1" />
+                                    <Path Stretch="Uniform" Height="4" Width="8" Data="F1 M 531.107,321.943L 541.537,321.943L 536.322,328.042L 531.107,321.943 Z ">
+                                        <Path.Fill>
+                                            <SolidColorBrush x:Name="ButtonColor" Color="#FF333333" />
+                                        </Path.Fill>
+                                    </Path>
+                                    <Rectangle x:Name="DisabledElement" Opacity="0" RadiusX="2" RadiusY="2" Fill="#FFFFFFFF"/>
                                 </Grid>
                             </ControlTemplate>
                             <ControlTemplate x:Key="VerticalDecrementTemplate" TargetType="RepeatButton">
                                 <Grid x:Name="Root">
                                     <vsm:VisualStateManager.VisualStateGroups>
                                         <vsm:VisualStateGroup x:Name="CommonStates">
-                                            <vsm:VisualState x:Name="Normal"/>
-                                            <vsm:VisualState x:Name="MouseOver"/>
-                                            <vsm:VisualState x:Name="Pressed"/>
-                                            <vsm:VisualState x:Name="Disabled"/>
+                                            <vsm:VisualState x:Name="Normal" />
+                                            <vsm:VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="Background" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="BackgroundMouseOver" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Duration="0" To="#7FFFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Duration="0" To="#CCFFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Duration="0" To="#F2FFFFFF"/>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="Background" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="BackgroundPressed" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Storyboard.TargetName="Highlight" Storyboard.TargetProperty="(UIElement.Opacity)" Duration="0" To="1"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Duration="0" To="#6BFFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Duration="0" To="#C6FFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Duration="0" To="#EAFFFFFF"/>
+                                                    <ColorAnimation Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Duration="0" To="#F4FFFFFF"/>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="DisabledElement" Storyboard.TargetProperty="Opacity" To=".7" />
+                                                </Storyboard>
+                                            </vsm:VisualState>
                                         </vsm:VisualStateGroup>
                                     </vsm:VisualStateManager.VisualStateGroups>
-                                    <Image Source="Images/scrollviewer向上.png" Stretch="None"/>
+                                    <Rectangle x:Name="Background" Opacity="0" RadiusX="2" RadiusY="2" Fill="#FF1F3B53" StrokeThickness="1">
+                                        <Rectangle.Stroke>
+                                            <LinearGradientBrush EndPoint="1,.5" StartPoint="0,.5">
+                                                <GradientStop Color="#FF647480" Offset="1"/>
+                                                <GradientStop Color="#FFAEB7BF" Offset="0"/>
+                                                <GradientStop Color="#FF919EA7" Offset="0.35"/>
+                                                <GradientStop Color="#FF7A8A99" Offset="0.35"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Stroke>
+                                    </Rectangle>
+                                    <Rectangle x:Name="BackgroundMouseOver" Opacity="0" RadiusX="2" RadiusY="2" Fill="#FF448DCA" StrokeThickness="1" Stroke="#00000000"/>
+                                    <Rectangle x:Name="BackgroundPressed" Opacity="0" RadiusX="2" RadiusY="2" Fill="#FF448DCA" StrokeThickness="1" Stroke="#00000000"/>
+                                    <Rectangle x:Name="BackgroundGradient" Opacity="0" RadiusX="1" RadiusY="1" StrokeThickness="1" Margin="1" Stroke="#FFFFFFFF">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush StartPoint="0,.7" EndPoint="1,.7">
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.013" />
+                                                <GradientStop Color="#F9FFFFFF" Offset="0.375" />
+                                                <GradientStop Color="#E5FFFFFF" Offset="0.603" />
+                                                <GradientStop Color="#C6FFFFFF" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle x:Name="Highlight" Opacity="0" RadiusX="1" RadiusY="1" IsHitTestVisible="false" Stroke="#FF6DBDD1" StrokeThickness="1" Margin="1" />
+                                    <Path Stretch="Uniform" Height="4" Width="8" Data="F1 M 541.537,173.589L 531.107,173.589L 536.322,167.49L 541.537,173.589 Z ">
+                                        <Path.Fill>
+                                            <SolidColorBrush x:Name="ButtonColor" Color="#FF333333" />
+                                        </Path.Fill>
+                                    </Path>
+                                    <Rectangle x:Name="DisabledElement" Opacity="0" RadiusX="2" RadiusY="2" Fill="#FFFFFFFF"/>
                                 </Grid>
                             </ControlTemplate>
 
@@ -189,13 +293,31 @@
                                     <vsm:VisualStateManager.VisualStateGroups>
                                         <vsm:VisualStateGroup x:Name="CommonStates">
                                             <vsm:VisualState x:Name="Normal" />
-                                            <vsm:VisualState x:Name="MouseOver"/>
-                                            <vsm:VisualState x:Name="Pressed"/>
-                                            <vsm:VisualState x:Name="Disabled"/>
+                                            <vsm:VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="ImageOfNewScrollBarThumb_Normal" Storyboard.TargetProperty="Opacity" To="0"/>
+                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="ImageOfNewScrollBarThumb_Hover" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="ImageOfNewScrollBarThumb_Selected" Storyboard.TargetProperty="Opacity" To="0"/>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="ImageOfNewScrollBarThumb_Normal" Storyboard.TargetProperty="Opacity" To="0"/>
+                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="ImageOfNewScrollBarThumb_Hover" Storyboard.TargetProperty="Opacity" To="0"/>
+                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="ImageOfNewScrollBarThumb_Selected" Storyboard.TargetProperty="Opacity" To="1"/>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Duration="0:0:0" Storyboard.TargetName="ThumbVisual" Storyboard.TargetProperty="Opacity" To="0" />
+                                                </Storyboard>
+                                            </vsm:VisualState>
                                         </vsm:VisualStateGroup>
                                     </vsm:VisualStateManager.VisualStateGroups>
-                                    <Grid x:Name="ThumbVisual" Margin="-1,0,-1,0">
-                                        <Image Source="Images/scrollviewer滑块.png" Stretch="None"/>
+                                    <Grid x:Name="ThumbVisual" Margin="1,0,1,0">
+                                        <Image x:Name="ImageOfNewScrollBarThumb_Normal" Source="Images/NewScrollBarThumb_Normal.png" Stretch="Fill" Opacity="1"/>
+                                        <Image x:Name="ImageOfNewScrollBarThumb_Hover" Source="Images/NewScrollBarThumb_Hover.png" Stretch="Fill" Opacity="0"/>
+                                        <Image x:Name="ImageOfNewScrollBarThumb_Selected" Source="Images/NewScrollBarThumb_Selected.png" Stretch="Fill" Opacity="0"/>
                                     </Grid>
                                 </Grid>
                             </ControlTemplate>
@@ -262,7 +384,11 @@
                             <vsm:VisualStateGroup x:Name="CommonStates">
                                 <vsm:VisualState x:Name="Normal" />
                                 <vsm:VisualState x:Name="MouseOver" />
-                                <vsm:VisualState x:Name="Disabled"/>
+                                <vsm:VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0.5" Duration="0" />
+                                    </Storyboard>
+                                </vsm:VisualState>
                             </vsm:VisualStateGroup>
                         </vsm:VisualStateManager.VisualStateGroups>
 
@@ -317,6 +443,9 @@
 
                         <!-- Vertical Template -->
                         <Grid x:Name="VerticalRoot" Visibility="Collapsed">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="Images/NewScrollBar_Bg.png"/>
+                            </Grid.Background>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
@@ -325,15 +454,10 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <!-- Track Layer -->
-                            <Rectangle Grid.RowSpan="5" Fill="#FF2C2C2C" StrokeThickness="1" Stroke="#FF3D3D3D"/>
-
                             <!-- Repeat Buttons + Thumb -->
-                            <RepeatButton x:Name="VerticalSmallDecrease" Grid.Row="0" Height="16" IsTabStop="False" Interval="50" Template="{StaticResource VerticalDecrementTemplate}" Margin="1" />
                             <RepeatButton x:Name="VerticalLargeDecrease" Grid.Row="1" Height="0" Template="{StaticResource RepeatButtonTemplate}" Interval="50" IsTabStop="False" />
-                            <Thumb x:Name="VerticalThumb" MinHeight="29" Height="29" Grid.Row="2" Template="{StaticResource VerticalThumbTemplate}"/>
+                            <Thumb x:Name="VerticalThumb" MinHeight="33" Height="33" Grid.Row="2" Template="{StaticResource VerticalThumbTemplate}" />
                             <RepeatButton x:Name="VerticalLargeIncrease" Grid.Row="3" Template="{StaticResource RepeatButtonTemplate}" Interval="50" IsTabStop="False" />
-                            <RepeatButton x:Name="VerticalSmallIncrease" Grid.Row="4" Height="16" IsTabStop="False" Interval="50" Template="{StaticResource VerticalIncrementTemplate}" Margin="1" />
                         </Grid>
                     </Grid>
                 </ControlTemplate>
@@ -346,12 +470,21 @@
         <Setter Property="VerticalScrollBarVisibility" Value="Visible" />
         <Setter Property="Padding" Value="4"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#FF414141"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ScrollViewer">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <Grid Background="#FF121212">
+                        <Grid Background="{TemplateBinding Background}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
@@ -368,7 +501,7 @@
 
                             <Rectangle Grid.Column="1" Grid.Row="1" Fill="#FFE9EEF4"/>
 
-                            <ScrollBar x:Name="VerticalScrollBar" Width="16" Style="{StaticResource NewScrollBarStyle}"
+                            <ScrollBar x:Name="VerticalScrollBar" Width="13" Style="{StaticResource NewScrollBarStyle}"
                                      IsTabStop="False"
                                      Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
                                      Grid.Column="1" Grid.Row="0" Orientation="Vertical"
@@ -376,7 +509,7 @@
                                      Maximum="{TemplateBinding ScrollableHeight}"
                                      Minimum="0"
                                      Value="{TemplateBinding VerticalOffset}"
-                                     Margin="0,1,1,1"/>
+                                     Margin="0,-1,-1,-1"/>
 
                             <ScrollBar x:Name="HorizontalScrollBar" Height="18"
                                      IsTabStop="False"
@@ -390,6 +523,205 @@
 
                         </Grid>
                     </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Thumb" x:Key="NewThumbStyle">
+        <Setter Property="Background" Value="#FF1F3B53"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualState x:Name="Normal"/>
+                                <vsm:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfNormal" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfHover" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfSelected" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <!--<DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundAnimation" Storyboard.TargetProperty="Opacity" To="1"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" To="#F2FFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" To="#CCFFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" To="#7FFFFFFF"/>-->
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfNormal" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfHover" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfSelected" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <!--<ColorAnimation Duration="0" Storyboard.TargetName="Background" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#FF6DBDD1"/>
+                                            <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundAnimation" Storyboard.TargetProperty="Opacity" To="1"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" To="#D8FFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" To="#C6FFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" To="#8CFFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" To="#3FFFFFFF"/>-->
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="DisabledVisualElement" Storyboard.TargetProperty="Opacity" To=".55"/>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="FocusStates">
+                                <vsm:VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfNormal" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfHover" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="ThumbImageOfSelected" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <!--<DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Opacity" To="1"/>-->
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Unfocused"/>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+
+                        <Image x:Name="ThumbImageOfNormal" Source="Images/NewSliderThumb_Normal.png" Stretch="Fill" Opacity="1"/>
+                        <Image x:Name="ThumbImageOfHover" Source="Images/NewSliderThumb_Hover.png" Stretch="Fill" Opacity="0"/>
+                        <Image x:Name="ThumbImageOfSelected" Source="Images/NewSliderThumb_Selected.png" Stretch="Fill" Opacity="0"/>
+
+                        <!--<Border x:Name="Background" CornerRadius="2" Background="White" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                                <Grid Background="{TemplateBinding Background}"  Margin="1">
+                                    <Border Opacity="0"  x:Name="BackgroundAnimation" Background="#FF448DCA" />
+                                    <Rectangle x:Name="BackgroundGradient" >
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Color="#FFFFFFFF" Offset="0" />
+                                                <GradientStop Color="#F9FFFFFF" Offset="0.375" />
+                                                <GradientStop Color="#E5FFFFFF" Offset="0.625" />
+                                                <GradientStop Color="#C6FFFFFF" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Grid>
+                            </Border>-->
+                        <Rectangle x:Name="DisabledVisualElement" RadiusX="2" RadiusY="2" Fill="#FFFFFFFF" Opacity="0" IsHitTestVisible="false" />
+                        <Rectangle x:Name="FocusVisualElement" RadiusX="1" RadiusY="1" Margin="1" Stroke="#FF6DBDD1" StrokeThickness="1" Opacity="0" IsHitTestVisible="false" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Slider" x:Key="NewSliderStyle">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Maximum" Value="10" />
+        <Setter Property="Minimum" Value="0" />
+        <Setter Property="Value" Value="0" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid x:Name="Root">
+                        <Grid.Resources>
+                            <ControlTemplate x:Key="RepeatButtonTemplate">
+                                <Grid x:Name="Root" Opacity="0" Background="Transparent"/>
+                            </ControlTemplate>
+                        </Grid.Resources>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualState x:Name="Normal"/>
+                                <vsm:VisualState x:Name="MouseOver"/>
+                                <vsm:VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HorizontalTrackRectangleDisabledOverlay" Storyboard.TargetProperty="Visibility" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ThumbDisabledOverlay" Storyboard.TargetProperty="Visibility" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalTrackRectangleDisabledOverlay" Storyboard.TargetProperty="Visibility" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+
+                        <!-- Horizontal Template -->
+                        <Grid x:Name="HorizontalTemplate" Background="{TemplateBinding Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Track Layer -->
+                            <Rectangle x:Name="TrackRectangle" Grid.Column="0" Grid.ColumnSpan="3" Height="7" Margin="5,0,5,0">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Images/NewSlider_Bg.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Grid.Column="0" Height="6" Margin="5,0,0,0">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Images/NewSlider_Bg2.png" Stretch="None"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+
+                            <Rectangle x:Name="HorizontalTrackRectangleDisabledOverlay" Visibility="Collapsed"  Fill="White" Opacity=".55" Grid.Column="0" Grid.ColumnSpan="3" Height="3" RadiusX="1" RadiusY="1" Margin="5,0,5,0" />
+                            <!-- Repeat Buttons + Thumb -->
+                            <RepeatButton x:Name="HorizontalTrackLargeChangeDecreaseRepeatButton" Height="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Column="0"/>
+                            <Thumb Height="18" x:Name="HorizontalThumb" Width="7" Grid.Column="1" IsTabStop="True" Style="{StaticResource NewThumbStyle}"/>
+                            <Rectangle x:Name="ThumbDisabledOverlay" RadiusX="2" RadiusY="2"  Width="11" Grid.Column="1" Fill="White" Opacity=".55" Visibility="Collapsed"/>
+                            <RepeatButton x:Name="HorizontalTrackLargeChangeIncreaseRepeatButton" Height="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Column="2"/>
+                        </Grid>
+
+                        <!-- Vertical Template -->
+                        <Grid x:Name="VerticalTemplate" Visibility="Collapsed" Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Track Layer -->
+                            <Rectangle Stroke="#FFA3AEB9" StrokeThickness="{TemplateBinding BorderThickness}" Fill="#FFE6EFF7" Grid.Row="0" Grid.RowSpan="3" Width="3" RadiusX="1" RadiusY="1" Margin="0,5,0,5" />
+                            <Rectangle x:Name="VerticalTrackRectangleDisabledOverlay" Visibility="Collapsed"  Fill="White" Opacity=".55" Grid.Row="0" Grid.RowSpan="3" Width="3" RadiusX="1" RadiusY="1" Margin="0,5,0,5" />
+                            <!-- Repeat Buttons + Thumb -->
+                            <RepeatButton x:Name="VerticalTrackLargeChangeDecreaseRepeatButton" Width="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Row="2"/>
+                            <Thumb Height="11" x:Name="VerticalThumb" Width="18" Grid.Row="1" IsTabStop="True"/>
+                            <RepeatButton x:Name="VerticalTrackLargeChangeIncreaseRepeatButton" Width="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Row="0"/>
+                        </Grid>
+
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

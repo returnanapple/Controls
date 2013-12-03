@@ -136,6 +136,9 @@
     <Compile Include="ShowAWinningTool.xaml.cs">
       <DependentUpon>ShowAWinningTool.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SilverlightControl1.xaml.cs">
+      <DependentUpon>SilverlightControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SingleSelectButton.xaml.cs">
       <DependentUpon>SingleSelectButton.xaml</DependentUpon>
     </Compile>
@@ -221,6 +224,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ShowAWinningTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SilverlightControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -401,6 +408,28 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\LotteryContentControl_Bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NewSliderThumb_Hover.png" />
+    <Resource Include="Images\NewSliderThumb_Normal.png" />
+    <Resource Include="Images\NewSliderThumb_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NewSlider_Bg.png" />
+    <Resource Include="Images\NewSlider_Bg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NewComboBoxToggleButton_Hover.png" />
+    <Resource Include="Images\NewComboBoxToggleButton_Normal.png" />
+    <Resource Include="Images\NewComboBoxToggleButton_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NewScrollBar_Bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NewScrollBarThumb_Hover.png" />
+    <Resource Include="Images\NewScrollBarThumb_Normal.png" />
+    <Resource Include="Images\NewScrollBarThumb_Selected.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

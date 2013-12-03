@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Controls" x:Class="Controls.MainPage"
     mc:Ignorable="d">
     <Grid Width="700" Height="700">
-        <local:PlayTagButton HorizontalAlignment="Left" Margin="380,104,0,0" VerticalAlignment="Top"/>
+        <local:SilverlightControl1 HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Grid>
 

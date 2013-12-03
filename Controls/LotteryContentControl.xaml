@@ -6,6 +6,15 @@
     xmlns:local="clr-namespace:Controls" x:Class="Controls.LotteryContentControl"
     mc:Ignorable="d"
     Width="814" Height="568">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Canvas>
         <Canvas.Background>
             <ImageBrush ImageSource="Images/LotteryContentControl_Bg.png"/>
@@ -53,6 +62,7 @@
         <local:AboutBetButton Canvas.Left="404" Canvas.Top="470" ButtonText="清除"/>
         <local:AboutBetButton Canvas.Left="496" Canvas.Top="470" ButtonText="追号"/>
         <local:ConfirmBetButton Canvas.Left="542" Canvas.Top="392"/>
+        <Slider Style="{StaticResource NewSliderStyle}" Canvas.Left="659" Canvas.Top="441" Width="113"/>
 
     </Canvas>
 </UserControl>

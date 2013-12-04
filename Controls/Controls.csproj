@@ -145,6 +145,9 @@
     <Compile Include="SubPlayTagButton.xaml.cs">
       <DependentUpon>SubPlayTagButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TableTool.xaml.cs">
+      <DependentUpon>TableTool.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SubPlayTagButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TableTool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -430,6 +437,9 @@
     <Resource Include="Images\NewScrollBarThumb_Hover.png" />
     <Resource Include="Images\NewScrollBarThumb_Normal.png" />
     <Resource Include="Images\NewScrollBarThumb_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TableHead_Bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

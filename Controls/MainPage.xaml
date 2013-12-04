@@ -5,8 +5,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Controls" x:Class="Controls.MainPage"
     mc:Ignorable="d">
-    <Grid Width="700" Height="700">
-        <local:SilverlightControl1 HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    <Grid Width="700" Height="700" Background="Gray">
+        <local:TableTool x:Name="tt" InfoOfTable="aaa,200|bbb,200"/>
 
     </Grid>
 

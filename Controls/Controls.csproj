@@ -79,6 +79,9 @@
     <Compile Include="BetBar.xaml.cs">
       <DependentUpon>BetBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BettingDetailsPage_TableRow.xaml.cs">
+      <DependentUpon>BettingDetailsPage_TableRow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BetTool.xaml.cs">
       <DependentUpon>BetTool.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,18 @@
     </Compile>
     <Compile Include="DataButton.xaml.cs">
       <DependentUpon>DataButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataReportsPage_TableRow.xaml.cs">
+      <DependentUpon>DataReportsPage_TableRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExchangesPage_TableRow.xaml.cs">
+      <DependentUpon>ExchangesPage_TableRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FundsPage_TableRow.xaml.cs">
+      <DependentUpon>FundsPage_TableRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FundsPage_TableRow_w.xaml.cs">
+      <DependentUpon>FundsPage_TableRow_w.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameButton.xaml.cs">
       <DependentUpon>GameButton.xaml</DependentUpon>
@@ -148,6 +163,9 @@
     <Compile Include="TableTool.xaml.cs">
       <DependentUpon>TableTool.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UsersPage_TableRow.xaml.cs">
+      <DependentUpon>UsersPage_TableRow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -162,6 +180,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BettingDetailsPage_TableRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BetTool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +193,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DataButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataReportsPage_TableRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExchangesPage_TableRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FundsPage_TableRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FundsPage_TableRow_w.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -247,6 +285,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TableTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsersPage_TableRow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

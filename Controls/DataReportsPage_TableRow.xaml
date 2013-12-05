@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Controls.DataReportsPage_TableRow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="771" Height="20">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Fonts/Simsun.ttc#simsun"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="91"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Text="{Binding User}"/>
+        <TextBlock Grid.Column="1" Text="{Binding Money}"/>
+        <TextBlock Grid.Column="2" Text="{Binding Recharge}"/>
+        <TextBlock Grid.Column="3" Text="{Binding Withdrawal}"/>
+        <TextBlock Grid.Column="4" Text="{Binding Bet}"/>
+        <TextBlock Grid.Column="5" Text="{Binding Bonus}"/>
+        <TextBlock Grid.Column="6" Text="{Binding ReturnPoints}"/>
+        <TextBlock Grid.Column="7" Text="{Binding Expenditures}"/>
+        <TextBlock Grid.Column="8" Text="{Binding Profit}"/>
+    </Grid>
+</UserControl>

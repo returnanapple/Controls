@@ -405,6 +405,12 @@
   <ItemGroup>
     <Resource Include="Images\MinimizeAndExitButton_Bg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ScrollBarDownButtonIcon.png" />
+    <Resource Include="Images\ScrollBarThumb.png" />
+    <Resource Include="Images\ScrollBarUpButtonIcon.png" />
+    <Resource Include="Images\ScrollBar_Bg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

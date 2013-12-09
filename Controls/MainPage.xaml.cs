@@ -18,7 +18,6 @@ namespace Controls
         public MainPage()
         {
             InitializeComponent();
-            rtarc.EndTime = new DateTime(2013,12,9,20,50,1);
         }
     }
 }

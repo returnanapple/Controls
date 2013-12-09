@@ -6,13 +6,7 @@
     xmlns:local="clr-namespace:Controls" x:Class="Controls.MainPage"
     mc:Ignorable="d">
     <Grid Width="700" Height="500" Background="Gray">
-        <local:RemainTimeAndResultControl x:Name="rtarc" Margin="29,98,41,255" CurrentResult="1,1,1,1,11"/>
-        <local:ShowAHistoryResultTool HorizontalAlignment="Left" Margin="176,271,0,0" VerticalAlignment="Top"
-                                      />
-        <local:ShowABulletinTool HorizontalAlignment="Left" Margin="87,377,0,0" VerticalAlignment="Top"
-                                 Bulletin="老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告老子他妈的是公告"/>
-        <local:MinimizeAndExitButton Content="MinimizeAndExitButton" HorizontalAlignment="Left" Margin="369,357,0,0" VerticalAlignment="Top" Text="最小化"/>
-        <local:MinimizeAndExitButton Content="MinimizeAndExitButton" HorizontalAlignment="Left" Margin="407,357,0,0" VerticalAlignment="Top" Text="关闭"/>
+        <local:SilverlightControl1 HorizontalAlignment="Left" Margin="139,83,0,0" VerticalAlignment="Top" Height="315"/>
     </Grid>
 
 

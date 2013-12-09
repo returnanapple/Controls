@@ -19,8 +19,11 @@ namespace Controls
         public BetBar()
         {
             InitializeComponent();
+            MultiSelectNumberButtons.Children.ToList().ForEach(x => 
+            {
+                (x as MultiSelectNumberButton).Click += MultiSelect;
+            });
         }
-
         #region 依赖属性
         /// <summary>
         /// 位
@@ -35,26 +38,84 @@ namespace Controls
             {
                 BetBar td = (BetBar)d;
                 string te = (string)e.NewValue;
-                td.TittleImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}.png", te), UriKind.RelativeOrAbsolute));
+                td.ImageOfTittle.Source = new BitmapImage(new Uri(string.Format("Images/{0}.png", te), UriKind.RelativeOrAbsolute));
             }));
-
-
-        public IEnumerable<SingleSelect> AllSingleSelect
+        /// <summary>
+        /// 单选列表
+        /// </summary>
+        public IEnumerable<SingleSelect> SingleSelectList
         {
-            get { return (IEnumerable<SingleSelect>)GetValue(AllSingleSelectProperty); }
-            set { SetValue(AllSingleSelectProperty, value); }
+            get { return (IEnumerable<SingleSelect>)GetValue(SingleSelectListProperty); }
+            set { SetValue(SingleSelectListProperty, value); }
         }
-        public static readonly DependencyProperty AllSingleSelectProperty =
-            DependencyProperty.Register("AllSingleSelect", typeof(IEnumerable<SingleSelect>), typeof(BetBar), new PropertyMetadata(null, (d, e) => 
+        public static readonly DependencyProperty SingleSelectListProperty =
+            DependencyProperty.Register("SingleSelectList", typeof(IEnumerable<SingleSelect>), typeof(BetBar), new PropertyMetadata(null, (d, e) =>
             {
                 BetBar td = (BetBar)d;
-                td.SingleSelectItemsControl.Items.Clear();
-                td.SingleSelectItemsControl.ItemsSource = (IEnumerable<SingleSelect>)e.NewValue;
+                IEnumerable<SingleSelect> te = (IEnumerable<SingleSelect>)e.NewValue;
+                td.Selections.Items.Clear();
+                td.Selections.ItemsSource = te;
             }));
+        #endregion
 
-
-
-
+        #region 函数
+        private void MultiSelect(object sender, RoutedEventArgs e)
+        {
+            if (SingleSelectList == null)
+            {
+                return;
+            }
+            MultiSelectNumberButton s = (MultiSelectNumberButton)sender;
+            switch (s.Text)
+            {
+                case "全":
+                    SingleSelectList.ToList().ForEach(x =>
+                    {
+                        x.Selected = true;
+                    });
+                    break;
+                case "清":
+                    SingleSelectList.ToList().ForEach(x =>
+                    {
+                        x.Selected = false;
+                    });
+                    break;
+                case "大":
+                    List<SingleSelect> ssl = SingleSelectList.ToList();
+                    for (int i = ssl.Count / 2; i < ssl.Count; i++)
+                    {
+                        ssl[i].Selected = true;
+                    }
+                    break;
+                case "小":
+                    List<SingleSelect> ssl2 = SingleSelectList.ToList();
+                    for (int i = 0; i < ssl2.Count / 2; i++)
+                    {
+                        ssl2[i].Selected = true;
+                    }
+                    break;
+                case "单":
+                    SingleSelectList.ToList().ForEach(x =>
+                    {
+                        if (x.Number % 2 != 0)
+                        {
+                            x.Selected = true;
+                        }
+                    });
+                    break;
+                case "双":
+                    SingleSelectList.ToList().ForEach(x =>
+                    {
+                        if (x.Number % 2 == 0)
+                        {
+                            x.Selected = true;
+                        }
+                    });
+                    break;
+                default:
+                    break;
+            }
+        }
         #endregion
     }
 }

@@ -6,22 +6,6 @@
     mc:Ignorable="d"
     Width="630" Height="147">
     <UserControl.Resources>
-        <Style x:Key="NextIssueTextBlockStyle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#FF14ADD4"/>
-            <Setter Property="FontFamily" Value="Fonts/msyh.ttf#Microsoft YaHei"/>
-        </Style>
-        <Style x:Key="RemainTimeImageStyle" TargetType="Image">
-            <Setter Property="Stretch" Value="None"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-        </Style>
-        <Style x:Key="CurrentIssueTextBlockStyle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontFamily" Value="Fonts/msyh.ttf#Microsoft YaHei"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-
         <Storyboard x:Key="FlickerAndDescending" Duration="0:0:1" 
                     Completed="FlickerAndDescendingCompleted">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FlickerImage"
@@ -30,12 +14,11 @@
                 <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-
     </UserControl.Resources>
 
     <Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Images/剩余时间和开奖结果bg.png"/>
+            <ImageBrush Stretch="None" ImageSource="Images/RemainTimeAndResultControl_Bg.png"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="178"/>
@@ -48,25 +31,35 @@
                 <RowDefinition Height="82"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="45,0,29,0">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="#FF14ADD4"/>
+                        <Setter Property="FontFamily" Value="Fonts/msyh.ttf#Microsoft YaHei"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </Grid.Resources>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="NextIssueTextBlock" Grid.Row="0" Text="20131015-080" FontSize="14"
-                           VerticalAlignment="Bottom" HorizontalAlignment="Center"
-                           Style="{StaticResource NextIssueTextBlockStyle}"/>
+                <TextBlock x:Name="NextIssueTextBlock" Grid.Row="0" FontSize="14"
+                           VerticalAlignment="Bottom"/>
                 <TextBlock Grid.Row="1" Text="期开奖剩余时间" FontSize="14.5"
-                           VerticalAlignment="Top" HorizontalAlignment="Center"
-                           Style="{StaticResource NextIssueTextBlockStyle}"/>
+                           VerticalAlignment="Top"/>
             </Grid>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Width="110" Margin="32,0,36,0">
-                <Image x:Name="ThousandImage" Grid.Column="0" Source="Images/led8.png" Style="{StaticResource RemainTimeImageStyle}" Width="25"/>
-                <Image x:Name="HundredImage" Grid.Column="1" Source="Images/led8.png" Style="{StaticResource RemainTimeImageStyle}" Width="25"/>
-                <Image x:Name="FlickerImage" Grid.Column="2" Source="Images/led冒号.png" 
-                       Style="{StaticResource RemainTimeImageStyle}" Width="10" Opacity="1"/>
-                <Image x:Name="TenImage" Grid.Column="3" Source="Images/led8.png" Style="{StaticResource RemainTimeImageStyle}" Width="25"/>
-                <Image x:Name="OneImage" Source="Images/led8.png" Style="{StaticResource RemainTimeImageStyle}" Width="25"/>
+                <StackPanel.Resources>
+                    <Style TargetType="Image">
+                        <Setter Property="Stretch" Value="None"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Image x:Name="ThousandImage" Width="25"/>
+                <Image x:Name="HundredImage" Width="25"/>
+                <Image x:Name="FlickerImage" Source="Images/led冒号.png" Width="10" Opacity="1"/>
+                <Image x:Name="TenImage" Width="25"/>
+                <Image x:Name="OneImage" Width="25"/>
             </StackPanel>
         </Grid>
 
@@ -77,10 +70,19 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="LotteryTextBlock" Grid.Column="0" Text="重庆时时彩" Style="{StaticResource CurrentIssueTextBlockStyle}"/>
-                <TextBlock Grid.Column="1" Text="第" Style="{StaticResource CurrentIssueTextBlockStyle}"/>
-                <TextBlock x:Name="CurrentIssueTextBlock" Grid.Column="2" Text="20131018-002" Style="{StaticResource CurrentIssueTextBlockStyle}"/>
-                <TextBlock Grid.Column="2" Text="期开奖结果" Style="{StaticResource CurrentIssueTextBlockStyle}"/>
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="FontFamily" Value="Fonts/msyh.ttf#Microsoft YaHei"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock x:Name="LotteryTextBlock"/>
+                <TextBlock Text="第"/>
+                <TextBlock x:Name="CurrentIssueTextBlock"/>
+                <TextBlock Text="期开奖结果"/>
             </StackPanel>
 
             <ItemsControl Grid.Row="1" x:Name="CurrentResultItemsControl" Margin="27,25,25,34">

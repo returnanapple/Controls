@@ -15,9 +15,9 @@ namespace Controls.Classes
     public class SelectResult
     {
         public string Tittle { get; set; }
-        public List<string> Data { get; set; }
+        public List<int> Data { get; set; }
 
-        public SelectResult(string t, List<string> d)
+        public SelectResult(string t, List<int> d)
         {
             Tittle = t;
             Data = d;

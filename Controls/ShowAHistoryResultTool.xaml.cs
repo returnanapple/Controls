@@ -18,6 +18,7 @@ namespace Controls
         {
             InitializeComponent();
         }
+
         #region 依赖属性
         /// <summary>
         /// 期号
@@ -31,25 +32,27 @@ namespace Controls
             DependencyProperty.Register("Issue", typeof(string), typeof(ShowAHistoryResultTool), new PropertyMetadata("", (d, e) =>
             {
                 ShowAHistoryResultTool td = (ShowAHistoryResultTool)d;
-                td.IssueTextBlock.Text = (string)e.NewValue;
+                td.TextBlockOfIssue.Text = (string)e.NewValue;
             }));
+
         /// <summary>
-        /// 历史记录
+        /// 一条历史结果
         /// </summary>
-        public string AHistoryResult
+        public string Result
         {
-            get { return (string)GetValue(AHistoryResultProperty); }
-            set { SetValue(AHistoryResultProperty, value); }
+            get { return (string)GetValue(ResultProperty); }
+            set { SetValue(ResultProperty, value); }
         }
-        public static readonly DependencyProperty AHistoryResultProperty =
-            DependencyProperty.Register("AHistoryResult", typeof(string), typeof(ShowAHistoryResultTool), new PropertyMetadata("", (d, e) =>
+        public static readonly DependencyProperty ResultProperty =
+            DependencyProperty.Register("Result", typeof(string), typeof(ShowAHistoryResultTool), new PropertyMetadata("", (d, e) =>
             {
                 ShowAHistoryResultTool td = (ShowAHistoryResultTool)d;
                 string te = (string)e.NewValue;
-                List<string> ahr = te.Split(new Char[] { ',' }).ToList();
-                td.AHistoryResultItemsControl.Items.Clear();
-                td.AHistoryResultItemsControl.ItemsSource = ahr;
+                List<string> sl = te.Split(new char[] { ',' }).ToList();
+                td.ItemsControlOfResult.Items.Clear();
+                td.ItemsControlOfResult.ItemsSource = sl;
             }));
+
 
 
         #endregion

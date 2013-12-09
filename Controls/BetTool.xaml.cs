@@ -69,7 +69,7 @@ namespace Controls
                         x.AllSingleSelect.Clear();
                         for (int i = te; i <= td.NumberOfLast; i++)
                         {
-                            SingleSelect ss = new SingleSelect(i.ToString(), false);
+                            SingleSelect ss = new SingleSelect(i, false);
                             ss.PropertyChanged += x.OnReflashResult;
                             x.AllSingleSelect.Add(ss);
                         }
@@ -96,7 +96,7 @@ namespace Controls
                         x.AllSingleSelect.Clear();
                         for (int i = td.NumberOfFirst; i <= te; i++)
                         {
-                            SingleSelect ss = new SingleSelect(i.ToString(), false);
+                            SingleSelect ss = new SingleSelect(i, false);
                             ss.PropertyChanged += x.OnReflashResult;
                             x.AllSingleSelect.Add(ss);
                         }
@@ -136,13 +136,20 @@ namespace Controls
                 }
                 else
                 {
-                    List<string> sl = new List<string>();
+                    List<int> il = new List<int>();
                     OperatingCollection.First(x => x.Tittle == bi.Tittle).AllSingleSelect.ToList().Where(x => x.Selected == true).ToList().ForEach(x =>
                     {
-                        sl.Add(x.Number);
+                        il.Add(x.Number);
                     });
-                    Result.Add(new SelectResult(bi.Tittle, sl));
+                    Result.Add(new SelectResult(bi.Tittle, il));
                 }
+                Result.ForEach(x =>
+                {
+                    if (x.Data.Count == 0)
+                    {
+                        Result.Remove(x);
+                    }
+                });
             }
         }
         #endregion

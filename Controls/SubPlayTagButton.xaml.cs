@@ -8,86 +8,50 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Controls
 {
-    public partial class SubPlayTagButton : UserControl
+    public partial class SubPlayTagButton : RadioButton
     {
         public SubPlayTagButton()
         {
             InitializeComponent();
+            this.Style = (Style)this.Resources["NewRadioButtonStyleOfFontContent"];
         }
-        #region 依赖属性
-        /// <summary>
-        /// 是否选中
-        /// </summary>
-        public bool Selected
+        #region 重写OnApplyTemplate函数
+        public override void OnApplyTemplate()
         {
-            get { return (bool)GetValue(SelectedProperty); }
-            set { SetValue(SelectedProperty, value); }
+            base.OnApplyTemplate();
+            commonStatesText = (TextBlock)GetTemplateChild("TextOfCommonStates");
+            checkStatesText = (TextBlock)GetTemplateChild("TextOfCheckStates");
+            commonStatesText.Text = Text;
+            checkStatesText.Text = Text;
         }
-        public static readonly DependencyProperty SelectedProperty =
-            DependencyProperty.Register("Selected", typeof(bool), typeof(SubPlayTagButton), new PropertyMetadata(false, (d, e) =>
-            {
-                SubPlayTagButton td = (SubPlayTagButton)d;
-                bool te = (bool)e.NewValue;
-                if (te)
-                {
-                    td.SubPlayTagImage.Style = (Style)td.Resources["PressedEffect"];
-                }
-                else
-                {
-                    td.SubPlayTagImage.Style = (Style)td.Resources["NormalEffect"];
-                }
-            }));
-        /// <summary>
-        /// 玩法子标签文本
-        /// </summary>
-        public string SubPlayTagText
-        {
-            get { return (string)GetValue(SubPlayTagTextProperty); }
-            set { SetValue(SubPlayTagTextProperty, value); }
-        }
-        public static readonly DependencyProperty SubPlayTagTextProperty =
-            DependencyProperty.Register("SubPlayTagText", typeof(string), typeof(SubPlayTagButton), new PropertyMetadata("", (d, e) => 
-            {
-                SubPlayTagButton td = (SubPlayTagButton)d;
-                td.SubPlayTagTextBlock.Text = (string)e.NewValue;
-            }));
         #endregion
 
-        #region 鼠标事件
-        /// <summary>
-        /// 鼠标进入
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SubPlayTagGridMouseEnter(object sender, MouseEventArgs e)
+        #region 私有变量
+        TextBlock commonStatesText;
+        TextBlock checkStatesText;
+        #endregion
+
+        #region 依赖属性
+        public string Text
         {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
         }
-        /// <summary>
-        /// 鼠标离开
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SubPlayTagGridMouseLeave(object sender, MouseEventArgs e)
-        {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
-        }
-        /// <summary>
-        /// 鼠标左键按下
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SubPlayTagGridMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!this.Selected)
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(SubPlayTagButton), new PropertyMetadata("", (d, e) =>
             {
-                this.Selected = true;
-            }
-        }
+                SubPlayTagButton td = (SubPlayTagButton)d;
+                if (td.commonStatesText != null && td.checkStatesText != null)
+                {
+                    td.commonStatesText.Text = (string)e.NewValue;
+                    td.checkStatesText.Text = (string)e.NewValue;
+                }
+            }));
         #endregion
     }
 }

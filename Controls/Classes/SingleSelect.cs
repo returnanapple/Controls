@@ -15,14 +15,14 @@ namespace Controls.Classes
     public class SingleSelect : INotifyPropertyChanged
     {
         #region 私有变量
-        private string number;
+        private int number;
         private bool selected;
         #endregion
 
         /// <summary>
         /// 数字
         /// </summary>
-        public string Number
+        public int Number
         {
             get
             {
@@ -54,7 +54,7 @@ namespace Controls.Classes
         /// </summary>
         /// <param name="n"></param>
         /// <param name="s"></param>
-        public SingleSelect(string n, bool s)
+        public SingleSelect(int n, bool s)
         {
             Number = n;
             Selected = s;

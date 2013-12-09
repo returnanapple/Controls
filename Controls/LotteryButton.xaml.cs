@@ -13,87 +13,53 @@ using System.Windows.Shapes;
 
 namespace Controls
 {
-    public partial class LotteryButton : UserControl
+    public partial class LotteryButton : RadioButton
     {
         public LotteryButton()
         {
             InitializeComponent();
+            this.Style = (Style)this.Resources["NewRadioButtonStyle"];
         }
+        #region 重写OnApplyTemplate函数
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            normalImage = (Image)GetTemplateChild("ImageOfNormal");
+            pressedImage = (Image)GetTemplateChild("ImageOfPressed");
+            checkedImage = (Image)GetTemplateChild("ImageOfChecked");
+            normalImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Normal.png", Text), UriKind.RelativeOrAbsolute));
+            pressedImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Pressed.png", Text), UriKind.RelativeOrAbsolute));
+            checkedImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Checked.png", Text), UriKind.RelativeOrAbsolute));
+        }
+        #endregion
+
+        #region 私有变量
+        Image normalImage;
+        Image pressedImage;
+        Image checkedImage;
+        #endregion
 
         #region 依赖属性
         /// <summary>
-        /// 彩票
+        /// 按键文本
         /// </summary>
-        public string LotteryText
+        public string Text
         {
-            get { return (string)GetValue(LotteryTextProperty); }
-            set { SetValue(LotteryTextProperty, value); }
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
         }
-        public static readonly DependencyProperty LotteryTextProperty =
-            DependencyProperty.Register("LotteryText", typeof(string), typeof(LotteryButton), new PropertyMetadata("", (d, e) =>
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(LotteryButton), new PropertyMetadata("", (d, e) =>
             {
                 LotteryButton td = (LotteryButton)d;
                 string te = (string)e.NewValue;
-                td.LotteryImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}.png", te), UriKind.RelativeOrAbsolute));
-            }));
-        /// <summary>
-        /// 是否被选择
-        /// </summary>
-        public bool Selected
-        {
-            get { return (bool)GetValue(SelectedProperty); }
-            set { SetValue(SelectedProperty, value); }
-        }
-        public static readonly DependencyProperty SelectedProperty =
-            DependencyProperty.Register("Selected", typeof(bool), typeof(LotteryButton), new PropertyMetadata(false, (d, e) =>
-            {
-                LotteryButton td = (LotteryButton)d;
-                bool te = (bool)e.NewValue;
-                if (te)
+                if (td.normalImage != null && td.pressedImage != null && td.checkedImage != null)
                 {
-                    Style ts = td.Resources["SelectedEffect"] as Style;
-                    td.LotteryGrid.Style = ts;
-                }
-                else
-                {
-                    td.LotteryGrid.Style = null;
+                    td.normalImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Normal.png", te), UriKind.RelativeOrAbsolute));
+                    td.pressedImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Pressed.png", te), UriKind.RelativeOrAbsolute));
+                    td.checkedImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Checked.png", te), UriKind.RelativeOrAbsolute));
                 }
             }));
-        #endregion
-
-        #region 鼠标事件
-        /// <summary>
-        /// 鼠标进入
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LotteryImageMouseEnter(object sender, MouseEventArgs e)
-        {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
-        }
-
-        /// <summary>
-        /// 鼠标离开
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LotteryImageMouseLeave(object sender, MouseEventArgs e)
-        {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
-        }
-
-        /// <summary>
-        /// 鼠标右键按下
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LotteryImageMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!this.Selected)
-            {
-                this.Selected = true;
-            }
-        }
         #endregion
     }
 }

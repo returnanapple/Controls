@@ -8,88 +8,59 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Controls
 {
-    public partial class PlayTagButton : UserControl
+    public partial class PlayTagButton : RadioButton
     {
         public PlayTagButton()
         {
             InitializeComponent();
+            this.Style = (Style)this.Resources["NewRadioButtonStyle"];
         }
+
+        #region 重写OnApplyTemplate函数
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            normalImage = (Image)GetTemplateChild("ImageOfNormal");
+            pressedImage = (Image)GetTemplateChild("ImageOfPressed");
+            checkedImage = (Image)GetTemplateChild("ImageOfChecked");
+            normalImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Normal.png", Text), UriKind.RelativeOrAbsolute));
+            pressedImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Pressed.png", Text), UriKind.RelativeOrAbsolute));
+            checkedImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Checked.png", Text), UriKind.RelativeOrAbsolute));
+        }
+        #endregion
+
+        #region 私有变量
+        Image normalImage;
+        Image pressedImage;
+        Image checkedImage;
+        #endregion
 
         #region 依赖属性
         /// <summary>
-        /// 是否被选中
+        /// 按键文本
         /// </summary>
-        public bool Selected
+        public string Text
         {
-            get { return (bool)GetValue(SelectedProperty); }
-            set { SetValue(SelectedProperty, value); }
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
         }
-        public static readonly DependencyProperty SelectedProperty =
-            DependencyProperty.Register("Selected", typeof(bool), typeof(PlayTagButton), new PropertyMetadata(false, (d, e) =>
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(PlayTagButton), new PropertyMetadata("", (d, e) => 
             {
                 PlayTagButton td = (PlayTagButton)d;
-                bool te = (bool)e.NewValue;
-                if (te)
+                string te = (string)e.NewValue;
+                if (td.normalImage != null && td.pressedImage != null && td.checkedImage != null)
                 {
-                    td.PlayTagGrid.Style = (Style)td.Resources["PressedEffect"];
-                    td.PlayTagTextBlock.Style = (Style)td.Resources["TextBlockPressedEffect"];
-                }
-                else
-                {
-                    td.PlayTagGrid.Style = null;
-                    td.PlayTagTextBlock.Style = (Style)td.Resources["TextBlockNormalEffect"]; ;
+                    td.normalImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Normal.png", te), UriKind.RelativeOrAbsolute));
+                    td.pressedImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Pressed.png", te), UriKind.RelativeOrAbsolute));
+                    td.checkedImage.Source = new BitmapImage(new Uri(string.Format("Images/{0}_Checked.png", te), UriKind.RelativeOrAbsolute));
                 }
             }));
-        /// <summary>
-        /// 玩法标签文本
-        /// </summary>
-        public string PlayTagText
-        {
-            get { return (string)GetValue(PlayTagTextProperty); }
-            set { SetValue(PlayTagTextProperty, value); }
-        }
-        public static readonly DependencyProperty PlayTagTextProperty =
-            DependencyProperty.Register("PlayTagText", typeof(string), typeof(PlayTagButton), new PropertyMetadata("", (d, e) =>
-            {
-                PlayTagButton td = (PlayTagButton)d;
-                td.PlayTagTextBlock.Text = (string)e.NewValue;
-            }));
-        #endregion
-        #region 鼠标事件
-        /// <summary>
-        /// 鼠标进入
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PlayTagTextBlockMouseEnter(object sender, MouseEventArgs e)
-        {
-            (this.Resources["MouseEnterEffect"] as Storyboard).Begin();
-        }
-        /// <summary>
-        /// 鼠标离开
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PlayTagTextBlockMouseLeave(object sender, MouseEventArgs e)
-        {
-            (this.Resources["MouseLeaveEffect"] as Storyboard).Begin();
-        }
-        /// <summary>
-        /// 鼠标左键按下
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PlayTagTextBlockMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!this.Selected)
-            {
-                this.Selected = true;
-            }
-        }
         #endregion
     }
 }

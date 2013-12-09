@@ -55,19 +55,26 @@ namespace Controls
                     td.remainTime = te - DateTime.Now;
                     if (td.remainTime.Hours > 0)
                     {
-                        td.ThousandImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((td.remainTime.Hours) / 10)), UriKind.RelativeOrAbsolute));
-                        td.HundredImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((td.remainTime.Hours) % 10)), UriKind.RelativeOrAbsolute));
-                        td.TenImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((td.remainTime.Minutes) / 10)), UriKind.RelativeOrAbsolute));
-                        td.OneImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((td.remainTime.Minutes) % 10)), UriKind.RelativeOrAbsolute));
+                        td.ThousandImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((td.remainTime.Hours) / 10)), UriKind.RelativeOrAbsolute));
+                        td.HundredImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((td.remainTime.Hours) % 10)), UriKind.RelativeOrAbsolute));
+                        td.TenImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((td.remainTime.Minutes) / 10)), UriKind.RelativeOrAbsolute));
+                        td.OneImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((td.remainTime.Minutes) % 10)), UriKind.RelativeOrAbsolute));
                     }
                     else
                     {
-                        td.ThousandImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((td.remainTime.Minutes) / 10)), UriKind.RelativeOrAbsolute));
-                        td.HundredImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((td.remainTime.Minutes) % 10)), UriKind.RelativeOrAbsolute));
-                        td.TenImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((td.remainTime.Seconds) / 10)), UriKind.RelativeOrAbsolute));
-                        td.OneImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((td.remainTime.Seconds) % 10)), UriKind.RelativeOrAbsolute));
+                        td.ThousandImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((td.remainTime.Minutes) / 10)), UriKind.RelativeOrAbsolute));
+                        td.HundredImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((td.remainTime.Minutes) % 10)), UriKind.RelativeOrAbsolute));
+                        td.TenImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((td.remainTime.Seconds) / 10)), UriKind.RelativeOrAbsolute));
+                        td.OneImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((td.remainTime.Seconds) % 10)), UriKind.RelativeOrAbsolute));
                     }
                     (td.Resources["FlickerAndDescending"] as Storyboard).Begin();
+                }
+                else
+                {
+                    td.ThousandImage.Source = new BitmapImage(new Uri("Images/Led0.png", UriKind.RelativeOrAbsolute));
+                    td.HundredImage.Source = new BitmapImage(new Uri("Images/Led0.png", UriKind.RelativeOrAbsolute));
+                    td.TenImage.Source = new BitmapImage(new Uri("Images/Led0.png", UriKind.RelativeOrAbsolute));
+                    td.OneImage.Source = new BitmapImage(new Uri("Images/Led0.png", UriKind.RelativeOrAbsolute));
                 }
             }));
         /// <summary>
@@ -122,6 +129,7 @@ namespace Controls
                 td.CurrentResultItemsControl.ItemsSource = sl;
             }));
         #endregion
+
         #region 动画结束事件
         void FlickerAndDescendingCompleted(object sender, EventArgs e)
         {
@@ -130,26 +138,26 @@ namespace Controls
                 remainTime = remainTime - new TimeSpan(0, 0, 1);
                 if (remainTime.Hours == 0)
                 {
-                    ThousandImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((remainTime.Minutes) / 10)), UriKind.RelativeOrAbsolute));
-                    HundredImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((remainTime.Minutes) % 10)), UriKind.RelativeOrAbsolute));
-                    TenImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((remainTime.Seconds) / 10)), UriKind.RelativeOrAbsolute));
-                    OneImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((remainTime.Seconds) % 10)), UriKind.RelativeOrAbsolute));
+                    ThousandImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((remainTime.Minutes) / 10)), UriKind.RelativeOrAbsolute));
+                    HundredImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((remainTime.Minutes) % 10)), UriKind.RelativeOrAbsolute));
+                    TenImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((remainTime.Seconds) / 10)), UriKind.RelativeOrAbsolute));
+                    OneImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((remainTime.Seconds) % 10)), UriKind.RelativeOrAbsolute));
                 }
                 else
                 {
-                    ThousandImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((remainTime.Hours) / 10)), UriKind.RelativeOrAbsolute));
-                    HundredImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((remainTime.Hours) % 10)), UriKind.RelativeOrAbsolute));
-                    TenImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((remainTime.Minutes) / 10)), UriKind.RelativeOrAbsolute));
-                    OneImage.Source = new BitmapImage(new Uri(string.Format("Images/led{0}.png", Convert.ToString((remainTime.Minutes) % 10)), UriKind.RelativeOrAbsolute));
+                    ThousandImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((remainTime.Hours) / 10)), UriKind.RelativeOrAbsolute));
+                    HundredImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((remainTime.Hours) % 10)), UriKind.RelativeOrAbsolute));
+                    TenImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((remainTime.Minutes) / 10)), UriKind.RelativeOrAbsolute));
+                    OneImage.Source = new BitmapImage(new Uri(string.Format("Images/Led{0}.png", Convert.ToString((remainTime.Minutes) % 10)), UriKind.RelativeOrAbsolute));
                 }
                 (this.Resources["FlickerAndDescending"] as Storyboard).Begin();
             }
             else
             {
-                ThousandImage.Source = new BitmapImage(new Uri("Images/led0.png", UriKind.RelativeOrAbsolute));
-                HundredImage.Source = new BitmapImage(new Uri("Images/led0.png", UriKind.RelativeOrAbsolute));
-                TenImage.Source = new BitmapImage(new Uri("Images/led0.png", UriKind.RelativeOrAbsolute));
-                OneImage.Source = new BitmapImage(new Uri("Images/led0.png", UriKind.RelativeOrAbsolute));
+                ThousandImage.Source = new BitmapImage(new Uri("Images/Led0.png", UriKind.RelativeOrAbsolute));
+                HundredImage.Source = new BitmapImage(new Uri("Images/Led0.png", UriKind.RelativeOrAbsolute));
+                TenImage.Source = new BitmapImage(new Uri("Images/Led0.png", UriKind.RelativeOrAbsolute));
+                OneImage.Source = new BitmapImage(new Uri("Images/Led0.png", UriKind.RelativeOrAbsolute));
             }
 
         }

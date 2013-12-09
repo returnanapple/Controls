@@ -4,16 +4,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="220" Height="81">
+    Width="199" Height="62">
 
-    <Grid Width="199" Height="62" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/系统公告(单独)bg.png"/>
+            <ImageBrush Stretch="None" ImageSource="Images/ShowABulletinTool_Bg.png"/>
         </Grid.Background>
 
-        <TextBlock x:Name="ShowABulletinTextBlock" HorizontalAlignment="Left" Margin="42,7,0,0" 
-                   TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Height="49" TextTrimming="WordEllipsis"
-                   Foreground="#FF8B8B8B" FontSize="13" FontFamily="Fonts/simsun.ttc#simsun" LineHeight="16"
-                   Text="我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告我是公告"/>
+        <TextBlock x:Name="TextBlockOfBulletin" Margin="47,8,7,6" Foreground="#FF8B8B8B" FontSize="12" 
+                   FontFamily="Fonts/simsun.ttc#SimSun"
+                    TextWrapping="Wrap" TextTrimming="WordEllipsis"
+                   LineHeight="16" LineStackingStrategy="BaselineToBaseline"/>
     </Grid>
 </UserControl>

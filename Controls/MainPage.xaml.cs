@@ -18,12 +18,7 @@ namespace Controls
         public MainPage()
         {
             InitializeComponent();
-            bt.Result = new List<SelectResult>();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            bt.NumberOfLast = 9;
+            rtarc.EndTime = new DateTime(2013,12,9,20,50,1);
         }
     }
 }

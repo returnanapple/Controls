@@ -722,4 +722,239 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="Thumb">
+        <Setter Property="Background" Value="#FF1F3B53"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualState x:Name="Normal"/>
+                                <vsm:VisualState x:Name="MouseOver"/>
+                                <vsm:VisualState x:Name="Pressed"/>
+                                <vsm:VisualState x:Name="Disabled"/>
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="FocusStates">
+                                <vsm:VisualState x:Name="Focused"/>
+                                <vsm:VisualState x:Name="Unfocused"/>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                        <Image Source="Images/SliderThumb.png" Stretch="Fill"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Slider">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Maximum" Value="10" />
+        <Setter Property="Minimum" Value="0" />
+        <Setter Property="Value" Value="0" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid x:Name="Root">
+                        <Grid.Resources>
+                            <ControlTemplate x:Key="RepeatButtonTemplate">
+                                <Grid x:Name="Root" Opacity="0" Background="Transparent"/>
+                            </ControlTemplate>
+                        </Grid.Resources>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualState x:Name="Normal"/>
+                                <vsm:VisualState x:Name="MouseOver"/>
+                                <vsm:VisualState x:Name="Disabled"/>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+
+                        <!-- Horizontal Template -->
+                        <Grid x:Name="HorizontalTemplate" Background="{TemplateBinding Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Track Layer -->
+                            <Image Grid.Column="0" Grid.ColumnSpan="3" Source="Images/Slider_Bg.png" Stretch="Fill" Height="6" Margin="5,0,5,0"/>
+                            <Border Grid.Column="0" Grid.ColumnSpan="2" Height="5" Margin="5,0,5,0" CornerRadius="3">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="Images/Slider_Bg2.png" Stretch="Fill"/>
+                                </Border.Background>
+                            </Border>
+                            <!-- Repeat Buttons + Thumb -->
+                            <RepeatButton x:Name="HorizontalTrackLargeChangeDecreaseRepeatButton" Height="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Column="0"/>
+                            <Thumb Height="18" x:Name="HorizontalThumb" Width="11" Grid.Column="1" IsTabStop="True"/>
+                            <RepeatButton x:Name="HorizontalTrackLargeChangeIncreaseRepeatButton" Height="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Column="2"/>
+                        </Grid>
+
+                        <!-- Vertical Template -->
+                        <Grid x:Name="VerticalTemplate" Visibility="Collapsed" Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Track Layer -->
+                            <Rectangle Stroke="#FFA3AEB9" StrokeThickness="{TemplateBinding BorderThickness}" Fill="#FFE6EFF7" Grid.Row="0" Grid.RowSpan="3" Width="3" RadiusX="1" RadiusY="1" Margin="0,5,0,5" />
+                            <Rectangle x:Name="VerticalTrackRectangleDisabledOverlay" Visibility="Collapsed"  Fill="White" Opacity=".55" Grid.Row="0" Grid.RowSpan="3" Width="3" RadiusX="1" RadiusY="1" Margin="0,5,0,5" />
+                            <!-- Repeat Buttons + Thumb -->
+                            <RepeatButton x:Name="VerticalTrackLargeChangeDecreaseRepeatButton" Width="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Row="2"/>
+                            <Thumb Height="11" x:Name="VerticalThumb" Width="18" Grid.Row="1" IsTabStop="True"/>
+                            <RepeatButton x:Name="VerticalTrackLargeChangeIncreaseRepeatButton" Width="18" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Row="0"/>
+                        </Grid>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="Padding" Value="6,2,25,2" />
+        <Setter Property="Background" Value="#FF1F3B53"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="TabNavigation" Value="Once" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style x:Name="comboToggleStyle" TargetType="ToggleButton">
+                                <Setter Property="Foreground" Value="#FF333333"/>
+                                <Setter Property="Background" Value="#FF1F3B53"/>
+                                <Setter Property="BorderBrush">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                                            <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                                            <GradientStop Color="#FF718597" Offset="0.375"/>
+                                            <GradientStop Color="#FF617584" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <vsm:Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="Padding" Value="3"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Grid>
+                                                <vsm:VisualStateManager.VisualStateGroups>
+                                                    <vsm:VisualStateGroup x:Name="CommonStates">
+                                                        <vsm:VisualState x:Name="Normal"/>
+                                                        <vsm:VisualState x:Name="MouseOver"/>
+                                                        <vsm:VisualState x:Name="Pressed"/>
+                                                        <vsm:VisualState x:Name="Disabled" />
+                                                    </vsm:VisualStateGroup>
+                                                    <vsm:VisualStateGroup x:Name="CheckStates">
+                                                        <vsm:VisualState x:Name="Checked"/>
+                                                        <vsm:VisualState x:Name="Unchecked"/>
+                                                    </vsm:VisualStateGroup>
+                                                    <vsm:VisualStateGroup x:Name="FocusStates">
+                                                        <vsm:VisualState x:Name="Focused"/>
+                                                        <vsm:VisualState x:Name="Unfocused" />
+                                                    </vsm:VisualStateGroup>
+                                                </vsm:VisualStateManager.VisualStateGroups>
+                                                <Image Source="Images/ComboBoxToggleButton.png" Stretch="Fill"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Grid.Resources>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualState x:Name="Normal" />
+                                <vsm:VisualState x:Name="MouseOver" />
+                                <vsm:VisualState x:Name="Disabled"/>
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="FocusStates">
+                                <vsm:VisualState x:Name="Focused"/>
+                                <vsm:VisualState x:Name="Unfocused"/>
+                                <vsm:VisualState x:Name="FocusedDropDown">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="00:00:00" Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="ValidationStates">
+                                <vsm:VisualState x:Name="Valid"/>
+                                <vsm:VisualState x:Name="InvalidUnfocused"/>
+                                <vsm:VisualState x:Name="InvalidFocused"/>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                        <Border x:Name="ContentPresenterBorder">
+                            <Grid>
+                                <ToggleButton x:Name="DropDownToggle" Style="{StaticResource comboToggleStyle}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0" HorizontalContentAlignment="Right" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                                    <Path x:Name="BtnArrow" Height="4" Width="8" Stretch="Uniform" Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z " Margin="0,0,6,0" HorizontalAlignment="Right">
+                                        <Path.Fill>
+                                            <SolidColorBrush x:Name="BtnArrowColor" Color="#FF333333"/>
+                                        </Path.Fill>
+                                    </Path>
+                                </ToggleButton>
+                                <ContentPresenter x:Name="ContentPresenter" 
+                                                Margin="{TemplateBinding Padding}"  
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <TextBlock Text=" " />
+                                </ContentPresenter>
+                            </Grid>
+                        </Border>
+                        <Popup x:Name="Popup">
+                            <Border x:Name="PopupBorder" HorizontalAlignment="Stretch" Height="Auto" BorderThickness="1,0,1,1" BorderBrush="#FF464848" Background="Black">
+                                <ItemsPresenter/>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 </ResourceDictionary>

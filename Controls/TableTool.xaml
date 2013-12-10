@@ -1,0 +1,41 @@
+﻿<ItemsControl x:Class="Controls.TableTool"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="826">
+
+    <ItemsControl.Resources>
+        <Style TargetType="TextBlock" x:Key="FontStyleOfTittle">
+            <Setter Property="Foreground" Value="#FF959595"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Fonts/msyh.ttf#Microsoft YaHei"/>
+        </Style>
+        <Style TargetType="Rectangle" x:Name="StyleOfRectangle">
+            <Setter Property="Fill" Value="#FF494949"/>
+            <Setter Property="Width" Value="1"/>
+        </Style>
+    </ItemsControl.Resources>
+
+    <ItemsControl.Style>
+        <Style TargetType="ItemsControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Table">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="26"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel x:Name="HeadOfTable" Grid.Row="0" Orientation="Horizontal"/>
+                            <ItemsPresenter Grid.Row="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ItemsControl.Style>
+</ItemsControl>

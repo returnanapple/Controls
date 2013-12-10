@@ -92,8 +92,14 @@
     <Compile Include="LotteryButton.xaml.cs">
       <DependentUpon>LotteryButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LotteryTool.xaml.cs">
+      <DependentUpon>LotteryTool.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainTool.xaml.cs">
+      <DependentUpon>MainTool.xaml</DependentUpon>
     </Compile>
     <Compile Include="MinimizeAndExitButton.xaml.cs">
       <DependentUpon>MinimizeAndExitButton.xaml</DependentUpon>
@@ -123,8 +129,14 @@
     <Compile Include="ShowAHistoryResultTool.xaml.cs">
       <DependentUpon>ShowAHistoryResultTool.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SilverlightControl1.xaml.cs">
+      <DependentUpon>SilverlightControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubPlayTagButton.xaml.cs">
       <DependentUpon>SubPlayTagButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TableTool.xaml.cs">
+      <DependentUpon>TableTool.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -152,7 +164,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LotteryTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainTool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,11 +212,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SilverlightControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StyleDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SubPlayTagButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TableTool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -410,6 +438,25 @@
     <Resource Include="Images\ScrollBarThumb.png" />
     <Resource Include="Images\ScrollBarUpButtonIcon.png" />
     <Resource Include="Images\ScrollBar_Bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SliderThumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Slider_Bg.png" />
+    <Resource Include="Images\Slider_Bg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ComboBoxToggleButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ComboBox_Bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="temp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,8 +5,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Controls" x:Class="Controls.MainPage"
     mc:Ignorable="d">
-    <Grid Width="700" Height="500" Background="Gray">
-        <local:SilverlightControl1 HorizontalAlignment="Left" Margin="139,83,0,0" VerticalAlignment="Top" Height="315"/>
+    <Grid Width="891" Height="500" Background="White">
+        <local:TableTool HorizontalAlignment="Left" Margin="29,60,0,0" VerticalAlignment="Top"
+                         TableInfo="aaa,100|bbb,100|ccc,200|dddd,30" Height="294">
+            <local:TableTool.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="aaaa"/>
+                </DataTemplate>
+            </local:TableTool.ItemTemplate>
+            <TextBlock Text="aaaa"/>
+            <TextBlock Text="aaaa"/>
+            <TextBlock Text="aaaa"/>
+            <TextBlock Text="aaaa"/>
+            <TextBlock Text="aaaa"/>
+        </local:TableTool>
     </Grid>
 
 
